@@ -304,7 +304,7 @@ Jede Eingabeaufforderung wird während des Sendevorgangs in der Konsole angezeig
 1. Wählen Sie als Nächstes Option **3** aus, um eine E-Mail ähnlich der obigen zu erhalten, jedoch mit einer formatierten Tabelle mit zusätzlichen Tieren.
 1. Beobachten Sie die Eingabeaufforderungseingabe und die generierte Ausgabe. Dieses Mal sehen Sie wahrscheinlich eine ähnliche E-Mail mit speziell formatiertem Text (in diesem Fall eine Tabelle am Ende), die zeigt, wie die generativen KI-Modelle die Ausgabe bei Bedarf formatieren können.
 1. Wählen Sie als Nächstes Option **4** aus, um eine ähnliche E-Mail anzufordern, aber dieses Mal mit einem anderen Ton in der Systemmeldung.
-1. Beobachten Sie die Eingabeaufforderungseingabe und die generierte Ausgabe. Diesmal sehen Sie die E-Mail wahrscheinlich in einem ähnlichen Format, aber mit einem viel weniger informellen Ton. Wahrscheinlich werden sogar Witze enthalten sein!
+1. Beobachten Sie die Eingabeaufforderungseingabe und die generierte Ausgabe. Diesmal werden Sie die E-Mail wahrscheinlich in einem ähnlichen Format sehen, aber in einem viel informelleren Ton. Wahrscheinlich werden sogar Witze enthalten sein!
 
 Eine Erhöhung der Temperatur führt häufig dazu, dass die Antworten variieren, selbst wenn die gleiche Eingabeaufforderung bereitgestellt wird, was auf die erhöhte Zufälligkeit zurückzuführen ist. Sie können sie mehrmals mit unterschiedlichen Temperatur- oder top_p-Werten ausführen, um zu sehen, wie sich dies auf die Antwort auf dieselbe Eingabeaufforderung auswirkt.
 
