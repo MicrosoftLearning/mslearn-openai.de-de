@@ -80,17 +80,19 @@ Fügen Sie als Nächstes Ihre Daten im Chat-Playground hinzu, um zu sehen, wie e
     - **Tarif**: Basic
 
 1. Warten Sie, bis Ihre Suchressource bereitgestellt wurde, wechseln Sie dann zurück zu Azure AI Studio, und aktualisieren Sie die Seite.
-1. Geben Sie unter **Daten hinzufügen** die folgenden Werte für Ihre Datenquelle ein.
+1. Geben Sie im Fenster **Daten hinzufügen** die folgenden Werte für Ihre Datenquelle ein und wählen Sie dann **Weiter**.
 
     - **Datenquelle auswählen**: Laden Sie Dateien hoch.
     - **Azure Blob Storage-Ressource auswählen:** *Wählen Sie die Speicherressource aus, die Sie erstellt haben.*
         - Aktivieren Sie CORS, wenn Sie dazu aufgefordert werden.
     - **Azure Cognitive Search-Ressource auswählen:** *Wählen Sie die von Ihnen erstellte Suchressource aus.*
     - **Indexnamen eingeben:** margiestravel
-    - Kontrollkästchen aktivieren
+    - **Hinzufügen der Vektorsuche zu dieser Suchressource**: deaktiviert
+    - **Ich verstehe, dass die Verbindung zu einem Azure Cognitive Search-Konto eine Nutzung meines Kontos zur Folge hat**: aktiviert
 
-1. Laden Sie auf der Seite **Dateien hochladen** die PDF-Dateien hoch, die Sie heruntergeladen haben.
-1. Wählen Sie **Speichern und schließen** aus, um Ihre Daten hinzuzufügen. Dieser Vorgang kann einige Minuten in Anspruch nehmen. Schließen Sie das Fenster in diesem Zeitraum nicht. Nach Abschluss des Vorgangs werden die Datenquelle, die Suchressource und der Index angezeigt, die im **Setupbereich des Assistenten** angegeben sind.
+1. Laden Sie auf der Seite **Dateien hochladen** die PDFs hoch, die Sie heruntergeladen haben, und wählen Sie dann **Weiter**.
+1. Wählen Sie auf der Seite **Datenverwaltung** den Suchtyp **Schlüsselwort** aus der Dropdown-Liste und wählen Sie dann **Weiter**.
+1. Wählen Sie auf der Seite **Überprüfen und beenden** die Option **Speichern und schließen**, um Ihre Daten hinzuzufügen. Dieser Vorgang kann einige Minuten in Anspruch nehmen. Schließen Sie das Fenster in diesem Zeitraum nicht. Nach Abschluss des Vorgangs werden die Datenquelle, die Suchressource und der Index angezeigt, die im **Setupbereich des Assistenten** angegeben sind.
 
 ## Chatten mit einem Modell, das auf Ihren Daten begründet ist
 
