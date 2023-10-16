@@ -33,10 +33,10 @@ Bevor Sie Azure OpenAI-Modelle verwenden können, müssen Sie eine Azure OpenAI-
 
 Azure OpenAI bietet ein webbasiertes Portal namens **Azure OpenAI Studio**, das Sie zum Bereitstellen, Verwalten und Erkunden von Modellen verwenden können. Sie beginnen damit, Azure OpenAI kennenzulernen, indem Sie Azure OpenAI Studio verwenden, um ein Modell bereitzustellen.
 
-1. Verwenden Sie auf der Seite **Übersicht** für Ihre Azure OpenAI-Ressource die Schaltfläche **Erkunden**, um Azure OpenAI Studio in einer neuen Browserregisterkarte zu öffnen.
+1. Verwenden Sie auf der Seite **Übersicht** für Ihre Azure OpenAI-Ressource die Schaltfläche **Zu Azure OpenAI Studio wechseln**, um Azure OpenAI Studio in einer neuen Browserregisterkarte zu öffnen.
 2. Erstellen Sie in Azure OpenAI Studio eine neue Bereitstellung mit den folgenden Einstellungen:
     - **Modell**: gpt-35-turbo
-    - **Modev-Version**: Automatische Aktualisierung auf die Standardeinstellung
+    - **Model-Version**: Automatische Aktualisierung auf die Standardeinstellung
     - **Bereitstellungsname**: my-gpt-model
 
 > **Hinweis**: Azure OpenAI umfasst mehrere Modelle, die jeweils für ein anderes Verhältnis von Funktionen und Leistung optimiert sind. In dieser Übung verwenden Sie das **GPT-35-Turbo**-Modell, das ein gutes allgemeines Modell zum Zusammenfassen und Generieren natürlicher Sprache und Code ist. Weitere Informationen zu den verfügbaren Modellen in Azure OpenAI finden Sie unter [Modelle](https://learn.microsoft.com/azure/cognitive-services/openai/concepts/models) in der Azure OpenAI-Dokumentation.
