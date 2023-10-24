@@ -9,8 +9,6 @@ Mit Azure OpenAI Service können Entwickler*innen Chatbots, Sprachmodelle und an
 
 Bei der Arbeit mit Azure OpenAI Service wirkt sich die Gestaltung der Eingabeaufforderung durch Entwickler*innen erheblich darauf aus, wie das generative KI-Modell reagiert. Azure OpenAI-Modelle können Inhalte auf klare und präzise Weise anpassen und formatieren. In dieser Übung erfahren Sie, wie unterschiedliche Eingabeaufforderungen für ähnliche Inhalte dazu beitragen, die Antwort des KI-Modells so zu gestalten, dass Ihre Anforderungen besser erfüllt werden.
 
-Stellen Sie sich vor, Sie versuchen, Informationen für eine neue Tierrettung zu verschicken, und möchten sich dabei von einem generativen KI-Modell unterstützen lassen.
-
 Diese Übung dauert ungefähr **25** Minuten.
 
 ## Vorbereitung
