@@ -23,7 +23,7 @@ Bevor Sie Azure OpenAI-Modelle verwenden können, müssen Sie eine Azure OpenAI-
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com?azure-portal=true) an.
 2. Erstellen Sie eine **Azure OpenAI-Ressource** mit den folgenden Einstellungen:
     - **Abonnement**: Sie benötigen ein Azure-Abonnement, das für den Zugriff auf Azure OpenAI Service genehmigt wurde.
-    - **Ressourcengruppe**: Erstellen Sie eine neue Ressourcengruppe mit einem Namen Ihrer Wahl.
+    - **Ressourcengruppe**: Verwenden Sie entweder eine bereits vorhandene Ressourcengruppe oder erstellen Sie eine mit einem Namen Ihrer Wahl.
     - **Region**: Wählen Sie eine beliebige verfügbare Region aus.
     - **Name**: Wählen Sie einen Namen Ihrer Wahl aus.
     - **Tarif**: Standard S0.
@@ -98,11 +98,11 @@ Fügen Sie als Nächstes Ihre Daten im Chat-Playground hinzu, um zu sehen, wie e
 
 Nachdem Sie Ihre Daten hinzugefügt haben, stellen Sie die gleichen Fragen wie zuvor, und beobachten Sie, wie sich die Daten verändern.
 
-```code
+```
 I'd like to take a trip to New York. Where should I stay?
 ```
 
-```code
+```
 What are some facts about New York?
 ```
 
