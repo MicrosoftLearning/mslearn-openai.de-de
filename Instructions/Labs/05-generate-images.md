@@ -23,7 +23,7 @@ Bevor Sie Azure OpenAI-Modelle verwenden können, müssen Sie eine Azure OpenAI-
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
 2. Erstellen Sie eine **Azure OpenAI-Ressource** mit den folgenden Einstellungen:
     - **Abonnement**: Sie benötigen ein Azure-Abonnement, das für den Zugriff auf Azure OpenAI Service genehmigt wurde.
-    - **Ressourcengruppe**: Verwenden Sie entweder eine bereits vorhandene Ressourcengruppe, oder erstellen Sie eine mit einem beliebigen Namen.
+    - **Ressourcengruppe**: Verwenden Sie entweder eine bereits vorhandene Ressourcengruppe, oder erstellen Sie eine Ressourcengruppe mit einem beliebigen Namen.
     - **Region**: Wählen Sie **EastUS** als Region aus.
     - **Name**: Wählen Sie einen Namen Ihrer Wahl aus.
     - **Tarif**: Standard S0.
@@ -58,19 +58,19 @@ In dieser Übung verwenden Sie eine einfache Python- oder Microsoft-C#-App, um B
 
 2. Wenn Sie die Cloud Shell zum ersten Mal öffnen, werden Sie möglicherweise aufgefordert, die Art der Shell zu wählen, die Sie verwenden möchten (*Bash* oder *PowerShell*). Wählen Sie **Bash** aus. Wenn Sie diese Option nicht sehen, überspringen Sie den Schritt.  
 
-3. Wenn Sie dazu aufgefordert werden, Speicher für Ihre Cloud Shell zu erstellen, wählen Sie **Erweiterte Einstellungen anzeigen** aus, und wählen Sie die folgenden Einstellungen aus:
-    - **Abonnement:** Ihr Abonnement
-    - **Cloud Shell-Regionen**: Wählen Sie eine beliebige verfügbare Region aus
-    - **Anzeigen von VNET-Isolationssätzen** Nicht ausgewählt
-    - **Ressourcengruppe**: Verwenden Sie die vorhandene Ressourcengruppe, in der Sie Ihre Azure OpenAI-Ressource bereitgestellt haben
-    - **Speicherkonto**: Erstellen eines neuen Speicherkontos mit einem eindeutigen Namen
-    - **Dateifreigabe**: Erstellen einer neuen Dateifreigabe mit einem eindeutigen Namen
+3. Wenn Sie aufgefordert werden, Speicher für Ihre Cloud Shell zu erstellen, wählen Sie **Erweiterte Einstellungen anzeigen** und wählen Sie die folgenden Einstellungen:
+    - **Abonnement**: Ihr Abonnement
+    - **Cloud Shell-Regionen**: Wählen Sie eine verfügbare Region
+    - **VNET-Isolationseinstellungen anzeigen** Nicht ausgewählt
+    - **Ressourcengruppe**: Verwenden Sie die bestehende Ressourcengruppe, in der Sie Ihre Azure OpenAI-Ressource bereitgestellt haben
+    - **Speicherkonto**: Erstellen Sie ein neues Speicherkonto mit einem eindeutigen Namen
+    - **Dateifreigabe**: Erstellen Sie eine neue Dateifreigabe mit einem eindeutigen Namen
 
     Warten Sie dann etwa eine Minute, bis der Speicher erstellt ist.
 
     > **Hinweis**: Wenn Sie bereits eine Cloud Shell in Ihrem Azure-Abonnement eingerichtet haben, müssen Sie möglicherweise die Option **Benutzereinstellungen zurücksetzen** im ⚙️-Menü verwenden, um sicherzustellen, dass die neuesten Versionen von Python und .NET Framework installiert sind.
 
-4. Vergewissern Sie sich, dass links oben im Cloud Shell-Bereich der Shelltyp *Bash* ist. Sollte *PowerShell* angezeigt werden, wechseln Sie über das Dropdownmenü zu *Bash*.
+4. Vergewissern Sie sich, dass der oben links im Bereich „Cloud Shell“ angegebene Shell-Typ *Bash* lautet. Sollte *PowerShell* angezeigt werden, wechseln Sie über das Dropdownmenü zu *Bash*.
 
 5. Sobald das Terminal gestartet wird, geben Sie den folgenden Befehl ein, um den Anwendungscode herunterzuladen, mit dem Sie arbeiten möchten.
 
