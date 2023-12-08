@@ -23,7 +23,7 @@ Bevor Sie Azure OpenAI-Modelle verwenden können, müssen Sie eine Azure OpenAI-
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
 2. Erstellen Sie eine **Azure OpenAI-Ressource** mit den folgenden Einstellungen:
     - **Abonnement**: Sie benötigen ein Azure-Abonnement, das für den Zugriff auf Azure OpenAI Service genehmigt wurde.
-    - **Ressourcengruppe**: Verwenden Sie entweder eine bereits vorhandene Ressourcengruppe, oder erstellen Sie eine Ressourcengruppe mit einem beliebigen Namen.
+    - **Ressourcengruppe**: Verwenden Sie entweder eine bereits bestehende Ressourcengruppe, oder erstellen Sie eine neue Ressourcengruppe mit einem beliebigen Namen.
     - **Region**: Wählen Sie eine beliebige verfügbare Region aus.
     - **Name**: Wählen Sie einen Namen Ihrer Wahl aus.
     - **Tarif**: Standard S0.
@@ -34,35 +34,24 @@ Bevor Sie Azure OpenAI-Modelle verwenden können, müssen Sie eine Azure OpenAI-
 Azure OpenAI bietet ein webbasiertes Portal namens **Azure OpenAI Studio**, das Sie zum Bereitstellen, Verwalten und Erkunden von Modellen verwenden können. Sie beginnen damit, Azure OpenAI kennenzulernen, indem Sie Azure OpenAI Studio verwenden, um ein Modell bereitzustellen.
 
 1. Verwenden Sie auf der Seite **Übersicht** für Ihre Azure OpenAI-Ressource die Schaltfläche **Zu Azure OpenAI Studio wechseln**, um Azure OpenAI Studio in einer neuen Browserregisterkarte zu öffnen.
-2. Erstellen Sie in Azure OpenAI Studio eine neue Bereitstellung mit den folgenden Einstellungen:
-    - **Modell**: gpt-35-turbo
+2. Ihre vorhandenen Modellbereitstellungen finden Sie in Azure OpenAI Studio auf der Seite **Bereitstellungen**. Falls noch nicht vorhanden, erstellen Sie eine neue Bereitstellung des **gpt-35-turbo-16k**-Modells mit den folgenden Einstellungen:
+    - **Modell**: gpt-35-turbo-16k
     - **Modellversion**: Automatische Aktualisierung auf die Standardeinstellung
-    - **Bereitstellungsname**: my-gpt-model
+    - **Bereitstellungsname**: *Wählen Sie einen Namen Ihrer Wahl aus*
+    - **Erweiterte Optionen**
+        - **Inhaltsfilter**: Standard
+        - **Ratenlimit für Token pro Minute**: 5K\*
+        - **Dynamisches Kontingent aktivieren**: Aktiviert
 
-> **Hinweis**: Azure OpenAI umfasst mehrere Modelle, die jeweils für ein anderes Verhältnis von Funktionen und Leistung optimiert sind. In dieser Übung verwenden Sie das **GPT-35-Turbo**-Modell, das ein gutes allgemeines Modell zum Zusammenfassen und Generieren natürlicher Sprache und Code ist. Weitere Informationen zu den verfügbaren Modellen in Azure OpenAI finden Sie unter [Modelle](https://learn.microsoft.com/azure/cognitive-services/openai/concepts/models) in der Azure OpenAI-Dokumentation.
+    > \* Ein Ratenlimit von 5.000 Token pro Minute ist mehr als ausreichend, um diese Aufgabe zu erfüllen und gleichzeitig Kapazität für andere Personen zu schaffen, die das gleiche Abonnement nutzen.
 
-## Erkunden eines Modells im Playground „Vervollständigungen“
-
-*Playgrounds* sind nützliche Oberflächen in Azure OpenAI Studio, auf denen Sie mit Ihren bereitgestellten Modellen experimentieren können, ohne eine eigene Clientanwendung entwickeln zu müssen.
-
-1. Wählen Sie in Azure OpenAI Studio im linken Bereich unter **Playground** die Option **Vervollständigungen** aus.
-2. Stellen Sie auf der Seite **Vervollständigungen** sicher, dass die Bereitstellung **my-gpt-model** ausgewählt ist, und wählen Sie dann in der Liste **Beispiele** die Option **Quiz generieren** aus.
-
-    Das Zusammenfassungstextbeispiel besteht aus einer *Eingabeaufforderung*, die Text bereitstellt, um dem Modell mitzuteilen, welche Art von Antwort erforderlich ist, und sie enthält einige kontextbezogene Informationen.
-
-3. Notieren Sie sich unten auf der Seite die Anzahl der im Text erkannten *Token*. Token sind die grundlegenden Einheiten einer Eingabeaufforderung, vergleichbar mit Wörtern oder Wortteilen im Text.
-4. Verwenden Sie die Schaltfläche **Generieren**, um die Eingabeaufforderung an das Modell zu übermitteln und eine Antwort abzurufen.
-
-    Die Antwort besteht aus einem Quiz, das auf dem Beispiel in der Eingabeaufforderung basiert.
-
-5. Verwenden Sie die Schaltfläche **Erneut generieren**, um die Eingabeaufforderung erneut zu übermitteln. Beachten Sie, dass die Antwort von der ursprünglichen abweichen kann. Ein generatives KI-Modell kann bei jedem Aufruf eine neue Sprache erzeugen.
-6. Verwenden Sie die Schaltfläche **Code anzeigen**, um den Code anzuzeigen, den eine Clientanwendung zum Übermitteln der Eingabeaufforderung verwenden würde. Sie können Ihre bevorzugte Programmiersprache auswählen. Die Eingabeaufforderung enthält den Text, den Sie an das Modell übermittelt haben. Die Anforderung wird an die *Completions*-API (API für Vervollständigungen) für Ihren Azure OpenAI-Dienst gesendet.
+> **Hinweis**: In einigen Regionen zeigt die Schnittstelle zur Bereitstellung des neuen Modells die Option **Modellversion** nicht an. Lassen Sie sich in diesem Fall nicht beunruhigen und fahren Sie fort, ohne die Option festzulegen
 
 ## Verwenden des Chat-Playgrounds
 
 Der *Chat*-Playground bietet eine Chatbotschnittstelle für GPT 3.5 und höhere Modelle. Er verwendet die *ChatCompletions*-API anstelle der älteren *Completions*-API.
 
-1. Wählen Sie im Abschnitt **Playground** die Seite **Chat** aus, und stellen Sie sicher, dass das **my-gpt-model**-Modell im Konfigurationsbereich auf der rechten Seite ausgewählt ist.
+1. Wählen Sie im Bereich **Playground** die Seite **Chat** und vergewissern Sie sich, dass Ihr Modell im Konfigurationsbereich ausgewählt ist.
 2. Ersetzen Sie im Abschnitt **Assistenteneinrichtung** im Feld **Systemmeldung** den aktuellen Text durch folgende Anweisung: `The system is an AI teacher that helps people learn about AI`.
 
 3. Klicken Sie unterhalb des Felds **Systemmeldung** auf **Beispiele hinzufügen**, und geben Sie die folgende Nachricht und Antwort in die entsprechenden Felder ein:
@@ -88,7 +77,7 @@ Sie können die Eingabeaufforderung und die Parameter verwenden, um die Wahrsche
 
 1. Legen Sie im Bereich **Parameter** die folgenden Parameterwerte fest:
     - **Temperatur**: 0
-    - **Maximale Länge (Token)** : 500
+    - **Maximale Antwort**: 500
 
 2. Übermitteln Sie folgende Nachricht:
 
