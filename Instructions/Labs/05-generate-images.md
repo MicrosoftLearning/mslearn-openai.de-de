@@ -23,8 +23,8 @@ Bevor Sie Azure OpenAI-Modelle verwenden können, müssen Sie eine Azure OpenAI-
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
 2. Erstellen Sie eine **Azure OpenAI-Ressource** mit den folgenden Einstellungen:
     - **Abonnement**: Sie benötigen ein Azure-Abonnement, das für den Zugriff auf Azure OpenAI Service genehmigt wurde.
-    - **Ressourcengruppe**: Verwenden Sie entweder eine bereits vorhandene Ressourcengruppe, oder erstellen Sie eine Ressourcengruppe mit einem beliebigen Namen.
-    - **Region**: Wählen Sie **EastUS** als Region aus.
+    - **Ressourcengruppe**: Verwenden Sie entweder eine bereits bestehende Ressourcengruppe, oder erstellen Sie eine neue Ressourcengruppe mit einem beliebigen Namen.
+    - **Region**: Wählen Sie **EastUS** als Region
     - **Name**: Wählen Sie einen Namen Ihrer Wahl aus.
     - **Tarif**: Standard S0.
 3. Warten Sie, bis die Bereitstellung abgeschlossen ist. Wechseln Sie dann zur bereitgestellten Azure OpenAI-Ressource im Azure-Portal.
@@ -58,9 +58,9 @@ In dieser Übung verwenden Sie eine einfache Python- oder Microsoft-C#-App, um B
 
 2. Wenn Sie die Cloud Shell zum ersten Mal öffnen, werden Sie möglicherweise aufgefordert, die Art der Shell zu wählen, die Sie verwenden möchten (*Bash* oder *PowerShell*). Wählen Sie **Bash** aus. Wenn Sie diese Option nicht sehen, überspringen Sie den Schritt.  
 
-3. Wenn Sie aufgefordert werden, Speicher für Ihre Cloud Shell zu erstellen, wählen Sie **Erweiterte Einstellungen anzeigen** und wählen Sie die folgenden Einstellungen:
+3. Wenn Sie aufgefordert werden, Speicher für Ihre Cloud Shell zu erstellen, wählen Sie **Erweiterte Einstellungen anzeigen** und dann die folgenden Einstellungen aus:
     - **Abonnement**: Ihr Abonnement
-    - **Cloud Shell-Regionen**: Wählen Sie eine verfügbare Region
+    - **Cloud Shell-Regionen**: Wählen Sie eine beliebige verfügbare Region
     - **VNET-Isolationseinstellungen anzeigen** Nicht ausgewählt
     - **Ressourcengruppe**: Verwenden Sie die bestehende Ressourcengruppe, in der Sie Ihre Azure OpenAI-Ressource bereitgestellt haben
     - **Speicherkonto**: Erstellen Sie ein neues Speicherkonto mit einem eindeutigen Namen
@@ -75,8 +75,8 @@ In dieser Übung verwenden Sie eine einfache Python- oder Microsoft-C#-App, um B
 5. Sobald das Terminal gestartet wird, geben Sie den folgenden Befehl ein, um den Anwendungscode herunterzuladen, mit dem Sie arbeiten möchten.
 
     ```bash
-   rm -r azure-openai -f
-   git clone https://github.com/MicrosoftLearning/mslearn-openai azure-openai
+    rm -r azure-openai -f
+    git clone https://github.com/MicrosoftLearning/mslearn-openai azure-openai
     ```
 
     Die Dateien werden in einen Ordner namens **azure-openai** heruntergeladen. Anwendungen für C# und Python wurden bereitgestellt. Beide Apps verfügen über die gleiche Funktionalität.
@@ -86,20 +86,22 @@ In dieser Übung verwenden Sie eine einfache Python- oder Microsoft-C#-App, um B
     **Python**
 
     ```bash
-   cd azure-openai/Labfiles/05-image-generation/Python
+    cd azure-openai/Labfiles/05-image-generation/Python
     ```
 
     **C#**
 
     ```bash
-   cd azure-openai/Labfiles/05-image-generation/CSharp
+    cd azure-openai/Labfiles/05-image-generation/CSharp
     ```
 
 7. Verwenden Sie den folgenden Befehl, um den integrierten Code-Editor zu öffnen und die Codedateien anzuzeigen, mit denen Sie arbeiten werden.
 
     ```bash
-   code .
+    code .
     ```
+
+    > **Hinweis**: Weitere Informationen zur Verwendung von Dateien in der Azure Cloud Shell-Umgebung finden Sie in der [Dokumentation für den Azure Cloud Shell-Code-Editor](https://learn.microsoft.com/azure/cloud-shell/using-cloud-shell-editor).
 
 ### Konfigurieren der Anwendung
 
@@ -117,7 +119,7 @@ Die Anwendung verwendet eine Konfigurationsdatei, um die Details zu speichern, d
 3. Wenn Sie **Python** verwenden, müssen Sie auch das Paket **python-dotenv** installieren, das zum Lesen der Konfigurationsdatei verwendet wird. Stellen Sie im Konsoleneingabeaufforderungsbereich sicher, dass der aktuelle Ordner **~/azure-openai/Labfiles/05-image-generation/Python** ist. Geben Sie dann den folgenden Befehl ein:
 
     ```bash
-   pip install python-dotenv
+    pip install python-dotenv
     ```
 
 ### Anzeigen des Anwendungscodes
@@ -148,13 +150,13 @@ Nachdem Sie den Code überprüft haben, ist es an der Zeit, ihn auszuführen und
     **Python**
 
     ```bash
-   python generate-image.py
+    python generate-image.py
     ```
 
     **C#**
 
     ```bash
-   dotnet run
+    dotnet run
     ```
 
 2. Wenn Sie dazu aufgefordert werden, geben Sie eine Beschreibung für ein Bild ein. Beispiel: *Eine Giraffe, die einen Drachen fliegt*.
