@@ -71,7 +71,7 @@ Fügen Sie als Nächstes Ihre Daten im Chat-Playground hinzu, um zu sehen, wie e
 1. Laden Sie die Daten, die Sie verwenden werden, [von GitHub herunter](https://aka.ms/own-data-brochures). Extrahieren Sie die PDF-Dateien im bereitgestellten `.zip`-Ordner.
 1. Navigieren Sie zum **Chat**-Playground, und wählen Sie im Bereich für die Assistenteneinrichtung die Option *Daten hinzufügen* aus.
 1. Wählen Sie **Datenquelle hinzufügen** und dann *Dateien hochladen* aus der Dropdownliste aus.
-1. Sie müssen ein Speicherkonto und eine Azure Cognitive Search-Ressource erstellen. Wählen Sie in der Dropdownliste für die Speicherressource die Option **Neue Azure Blob Storage-Ressource erstellen** aus, und erstellen Sie ein Speicherkonto mit den folgenden Einstellungen. Alles, was nicht angegeben ist, wird als Standard beibehalten.
+1. Sie müssen ein Speicherkonto und eine Azure KI Search-Ressource erstellen. Wählen Sie in der Dropdownliste für die Speicherressource die Option **Neue Azure Blob Storage-Ressource erstellen** aus, und erstellen Sie ein Speicherkonto mit den folgenden Einstellungen. Alles, was nicht angegeben ist, wird als Standard beibehalten.
 
     - **Abonnement**: *Dasselbe Abonnement wie Ihre Azure OpenAI-Ressource*
     - **Ressourcengruppe**: *Dieselbe Ressourcengruppe wie Ihre Azure OpenAI-Ressource*
@@ -79,7 +79,7 @@ Fügen Sie als Nächstes Ihre Daten im Chat-Playground hinzu, um zu sehen, wie e
     - **Region**: *Dieselbe Region wie Ihre Azure OpenAI-Ressource*
     - **Redundanz**: Lokal redundanter Speicher (LRS)
 
-1. Kehren Sie nach der Erstellung der Ressource zu Azure OpenAI Studio zurück, und wählen Sie **Neue Azure Cognitive Search-Ressource erstellen** mit den folgenden Einstellungen aus. Alles, was nicht angegeben ist, wird als Standard beibehalten.
+1. Kehren Sie nach der Erstellung der Ressource zu Azure OpenAI Studio zurück, und wählen Sie **Neue Azure AI Search-Ressource erstellen** mit den folgenden Einstellungen. Alles, was nicht angegeben ist, wird als Standard beibehalten.
 
     - **Abonnement**: *Dasselbe Abonnement wie Ihre Azure OpenAI-Ressource*
     - **Ressourcengruppe**: *Dieselbe Ressourcengruppe wie Ihre Azure OpenAI-Ressource*
@@ -93,10 +93,10 @@ Fügen Sie als Nächstes Ihre Daten im Chat-Playground hinzu, um zu sehen, wie e
     - **Datenquelle auswählen**: Laden Sie Dateien hoch.
     - **Azure Blob Storage-Ressource auswählen:** *Wählen Sie die Speicherressource aus, die Sie erstellt haben.*
         - Aktivieren Sie CORS, wenn Sie dazu aufgefordert werden.
-    - **Azure Cognitive Search-Ressource auswählen:** *Wählen Sie die von Ihnen erstellte Suchressource aus.*
+    - **Azure AI Search-Ressource auswählen:***Wählen Sie die von Ihnen erstellte Suchressource aus.*
     - **Indexnamen eingeben:** margiestravel
     - **Hinzufügen der Vektorsuche zu dieser Suchressource**: deaktiviert
-    - **Ich verstehe, dass die Verbindung zu einem Azure Cognitive Search-Konto eine Nutzung meines Kontos zur Folge hat**: aktiviert
+    - **Ich verstehe, dass die Verbindung zu einem Azure AI Search-Konto eine Nutzung meines Kontos zur Folge hat**: aktiviert
 
 1. Laden Sie auf der Seite **Dateien hochladen** die PDFs hoch, die Sie heruntergeladen haben, und wählen Sie dann **Weiter**.
 1. Wählen Sie auf der Seite **Datenverwaltung** den Suchtyp **Schlüsselwort** aus der Dropdown-Liste und wählen Sie dann **Weiter**.
@@ -236,6 +236,6 @@ Nachdem Ihre App konfiguriert wurde, führen Sie sie aus, um Ihre Anforderung an
 
 1. Übermitteln Sie die Eingabeaufforderung `Tell me about London`. Sie sollten nun eine Antwort erhalten, die sich auf Ihre Daten bezieht.
 
-## Bereinigen
+## Bereinigung
 
 Wenn Sie mit Ihrer Azure OpenAI-Ressource fertig sind, denken Sie daran, die gesamte Ressource im [Azure-Portal](https://portal.azure.com/?azure-portal=true) zu löschen. Stellen Sie sicher, dass Sie auch das Speicherkonto und die Suchressource einschließen, da für diese relativ hohe Kosten entstehen können.
