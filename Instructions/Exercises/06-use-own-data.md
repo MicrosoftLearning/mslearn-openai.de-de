@@ -66,11 +66,11 @@ Bevor Sie Azure OpenAI mit Ihren Daten verknüpfen, sollten Sie zunächst heraus
 3. Wählen Sie im Bereich **Setup** die Standardvorlage für Systemnachrichten aus, um den Kontext für die Chatsitzung festzulegen. Die Standardsystemnachricht lautet *Sie sind ein KI-Assistent, der Personen hilft, Informationen zu finden*.
 4. Senden Sie in der **Chatsitzung** die folgenden Abfragen, und überprüfen Sie die Antworten:
 
-    ```
+    ```prompt
     I'd like to take a trip to New York. Where should I stay?
     ```
 
-    ```
+    ```prompt
     What are some facts about New York?
     ```
 
@@ -121,11 +121,11 @@ Jetzt fügen Sie Daten für ein fiktives Reisebüro namens *Marias Reisebüro* h
 
 Nachdem Sie Ihre Daten hinzugefügt haben, stellen Sie die gleichen Fragen wie zuvor, und beobachten Sie, wie sich die Daten verändern.
 
-```
+```prompt
 I'd like to take a trip to New York. Where should I stay?
 ```
 
-```
+```prompt
 What are some facts about New York?
 ```
 

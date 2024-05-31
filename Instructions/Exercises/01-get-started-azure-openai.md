@@ -101,13 +101,13 @@ Bisher haben Sie eine Chatunterhaltung mit Ihrem Modell basierend auf der Standa
 
     **Benutzer**:
     
-    ```
+    ```prompt
     Write an advertisement for the lightweight "Ultramop" mop, which uses patented absorbent materials to clean floors.
     ```
     
     **Assistent:**
     
-    ```
+    ```prompt
     Welcome to the future of cleaning!
     
     The Ultramop makes light work of even the dirtiest of floors. Thanks to its patented absorbent materials, it ensures a brilliant shine. Just look at these features:
@@ -155,7 +155,7 @@ Nachdem Sie nun einige der Funktionen eines generativen KI-Modells im Azure Open
 1. Nachdem Ihre Web-App erfolgreich bereitgestellt wurde, verwenden Sie die Schaltfläche oben rechts auf der **Chat**-Playground-Seite, um die Web-App zu starten. Das Starten der App kann einige Minuten dauern. Wenn Sie dazu aufgefordert werden, akzeptieren Sie die Berechtigungsanforderung.
 1. Geben Sie die folgende Chatnachricht in die Web-App ein:
 
-    ```
+    ```prompt
     Write an advertisement for the new "WonderWipe" cloth that attracts dust particulates and can be used to clean any household surface.
     ```
 
