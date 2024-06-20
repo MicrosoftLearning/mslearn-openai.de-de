@@ -66,7 +66,7 @@ Beginnen wir mit der Erkundung einiger Prompt Engineering-Technik im Chat-Playgr
 3. Wählen Sie im Bereich **Setup** die Standardvorlage für Systemnachrichten aus, um den Kontext für die Chatsitzung festzulegen. Die Standardsystemnachricht lautet *Sie sind ein KI-Assistent, der Personen hilft, Informationen zu finden*.
 4. Senden Sie in der **Chatsitzung** die folgende Abfrage:
 
-    ```
+    ```prompt
     What kind of article is this?
     ---
     Severe drought likely in California
@@ -86,7 +86,7 @@ Beginnen wir mit der Erkundung einiger Prompt Engineering-Technik im Chat-Playgr
 
     **Benutzer**:
     
-    ```
+    ```prompt
     What kind of article is this?
     ---
     New York Baseballers Wins Big Against Chicago
@@ -100,7 +100,7 @@ Beginnen wir mit der Erkundung einiger Prompt Engineering-Technik im Chat-Playgr
     
     **Assistent:**
     
-    ```
+    ```prompt
     Sports
       ```
 
@@ -108,7 +108,7 @@ Beginnen wir mit der Erkundung einiger Prompt Engineering-Technik im Chat-Playgr
 
     **Benutzer:**
     
-    ```
+    ```prompt
     Categorize this article:
     ---
     Joyous moments at the Oscars
@@ -123,7 +123,7 @@ Beginnen wir mit der Erkundung einiger Prompt Engineering-Technik im Chat-Playgr
     
     **Assistent:**
     
-    ```
+    ```prompt
     Entertainment
     ```
 
@@ -131,7 +131,7 @@ Beginnen wir mit der Erkundung einiger Prompt Engineering-Technik im Chat-Playgr
 
 9. Geben Sie im Abschnitt **Chatsitzung** erneut die folgende Eingabeaufforderung ein:
 
-    ```
+    ```prompt
     What kind of article is this?
     ---
     Severe drought likely in California
@@ -149,7 +149,7 @@ Beginnen wir mit der Erkundung einiger Prompt Engineering-Technik im Chat-Playgr
 
 11. Geben Sie im Abschnitt **Chatsitzung** die folgende Eingabeaufforderung ein:
 
-    ```
+    ```prompt
     # 1. Create a list of animals
     # 2. Create a list of whimsical names for those animals
     # 3. Combine them randomly into a list of 25 animal and name pairs
