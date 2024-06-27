@@ -113,6 +113,7 @@ Jetzt fügen Sie Daten für ein fiktives Reisebüro namens *Marias Reisebüro* h
 
 1. Laden Sie auf der Seite **Dateien hochladen** die PDFs hoch, die Sie heruntergeladen haben, und wählen Sie dann **Weiter**.
 1. Wählen Sie auf der Seite **Datenverwaltung** den Suchtyp **Schlüsselwort** aus der Dropdown-Liste und wählen Sie dann **Weiter**.
+1. Wählen Sie auf der Seite **Datenverbindung** **API-Schlüssel**aus.
 1. Wählen Sie auf der Seite **Überprüfen und beenden** die Option **Speichern und schließen**, um Ihre Daten hinzuzufügen. Dieser Vorgang kann einige Minuten in Anspruch nehmen. Schließen Sie das Fenster in diesem Zeitraum nicht. Nach Abschluss des Vorgangs werden die Datenquelle, die Suchressource und der Index angezeigt, die im **Setup**-Bereich angegeben wurden.
 
     > **Tipp**: Gelegentlich dauert es zu lange, die Verbindung zwischen Ihrem neuen Suchindex und Azure OpenAI Studio herzustellen. Wenn Sie einige Minuten gewartet haben und die Verbindung noch nicht hergestellt wurde, überprüfen Sie Ihre KI-Suche-Ressourcen im Azure-Portal. Wenn der fertige Index angezeigt wird, können Sie die Datenverbindung in Azure OpenAI Studio trennen und erneut hinzufügen, indem Sie eine Datenquelle für Azure KI-Suche angeben und ihren neuen Index auswählen.
