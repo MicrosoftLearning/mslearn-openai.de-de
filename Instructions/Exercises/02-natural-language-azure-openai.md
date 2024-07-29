@@ -43,14 +43,13 @@ Azure OpenAI bietet ein webbasiertes Portal namens **Azure OpenAI Studio**, das 
 
 1. Verwenden Sie auf der Seite **Übersicht** für Ihre Azure OpenAI-Ressource die Schaltfläche **Zu Azure OpenAI Studio wechseln**, um Azure OpenAI Studio in einer neuen Browserregisterkarte zu öffnen.
 2. Ihre vorhandenen Modellbereitstellungen finden Sie in Azure OpenAI Studio auf der Seite **Bereitstellungen**. Falls noch nicht vorhanden, erstellen Sie eine neue Bereitstellung des **gpt-35-turbo-16k**-Modells mit den folgenden Einstellungen:
+    - **Bereitstellungsname**: *Ein eindeutiger Name Ihrer Wahl*
     - **Modell**: gpt-35-turbo-16k *(wenn das 16k-Modell nicht verfügbar ist, wählen Sie gpt-35-turbo)*
     - **Modellversion**: Automatische Aktualisierung auf die Standardeinstellung
-    - **Bereitstellungsname**: *Wählen Sie einen Namen für Ihre Wahl aus. Sie verwenden diesen Namen später im Lab.*
-    - **Erweiterte Optionen**
-        - **Inhaltsfilter**: Standard
-        - **Bereitstellungstyp**: Standard
-        - **Ratenlimit für Token pro Minute**: 5K\*
-        - **Dynamisches Kontingent aktivieren**: Aktiviert
+    - **Bereitstellungstyp**: Standard
+    - **Ratenlimit für Token pro Minute**: 5K\*
+    - **Inhaltsfilter**: Standard
+    - **Dynamisches Kontingent aktivieren**: Aktiviert
 
     > \* Ein Ratenlimit von 5.000 Token pro Minute ist mehr als ausreichend, um diese Aufgabe zu erfüllen und gleichzeitig Kapazität für andere Personen zu schaffen, die das gleiche Abonnement nutzen.
 
