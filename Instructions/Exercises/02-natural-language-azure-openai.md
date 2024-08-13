@@ -39,17 +39,19 @@ Wenn Sie noch keine Azure OpenAI-Ressource haben, stellen Sie eine in Ihrem Azur
 
 ## Bereitstellen eines Modells
 
-Azure OpenAI bietet ein webbasiertes Portal namens **Azure OpenAI Studio**, das Sie zum Bereitstellen, Verwalten und Erkunden von Modellen verwenden können. Sie beginnen damit, Azure OpenAI kennenzulernen, indem Sie Azure OpenAI Studio verwenden, um ein Modell bereitzustellen.
+Azure bietet ein webbasiertes Portal namens **Azure AI Studio**, das Sie zur Bereitstellung, Verwaltung und Untersuchung von Modellen verwenden können. Sie beginnen Ihre Erkundung von Azure OpenAI, indem Sie Azure AI Studio verwenden, um ein Modell bereitzustellen.
 
-1. Verwenden Sie auf der Seite **Übersicht** für Ihre Azure OpenAI-Ressource die Schaltfläche **Zu Azure OpenAI Studio wechseln**, um Azure OpenAI Studio in einer neuen Browserregisterkarte zu öffnen.
-2. Ihre vorhandenen Modellbereitstellungen finden Sie in Azure OpenAI Studio auf der Seite **Bereitstellungen**. Falls noch nicht vorhanden, erstellen Sie eine neue Bereitstellung des **gpt-35-turbo-16k**-Modells mit den folgenden Einstellungen:
+> **Hinweis**: Während Sie Azure AI Studio verwenden, werden möglicherweise Meldungsfelder mit Vorschlägen für auszuführende Aufgaben angezeigt. Sie können diese schließen und die Schritte in dieser Übung ausführen.
+
+1. Scrollen Sie im Azure-Portal auf der Seite **Übersicht** für Ihre Azure OpenAI-Ressource nach unten zum Abschnitt **Erste Schritte** und wählen Sie die Schaltfläche aus, um zu **AI Studio** zu gelangen.
+1. Wählen Sie in Azure AI Studio im linken Bereich die Seite "**Deployments**" aus und sehen Sie sich Ihre vorhandenen Modellbereitstellungen an. Falls noch nicht vorhanden, erstellen Sie eine neue Bereitstellung des **gpt-35-turbo-16k**-Modells mit den folgenden Einstellungen:
     - **Bereitstellungsname**: *Ein eindeutiger Name Ihrer Wahl*
     - **Modell**: gpt-35-turbo-16k *(wenn das 16k-Modell nicht verfügbar ist, wählen Sie gpt-35-turbo)*
-    - **Modellversion**: Automatische Aktualisierung auf die Standardeinstellung
+    - **Modellversion**: *Standardversion verwenden*
     - **Bereitstellungstyp**: Standard
     - **Ratenlimit für Token pro Minute**: 5K\*
     - **Inhaltsfilter**: Standard
-    - **Dynamisches Kontingent aktivieren**: Aktiviert
+    - **Dynamische Quote aktivieren**: Deaktiviert
 
     > \* Ein Ratenlimit von 5.000 Token pro Minute ist mehr als ausreichend, um diese Aufgabe zu erfüllen und gleichzeitig Kapazität für andere Personen zu schaffen, die das gleiche Abonnement nutzen.
 
@@ -95,7 +97,7 @@ Anwendungen für C# und Python wurden bereitgestellt. Beide Apps verfügen über
     
 4. Aktualisieren Sie die Konfigurationswerte, um Folgendes einzuschließen:
     - Den **Endpunkt** und einen **Schlüssel** aus der von Ihnen erstellten Azure OpenAI-Ressource (verfügbar auf der Seite **Schlüssel und Endpunkt** für Ihre Azure OpenAI-Ressource im Azure-Portal).
-    - Der **Bereitstellungsname**, den Sie für die Modellbereitstellung angegeben haben, verfügbar auf der Seite **Bereitstellungen** in Azure OpenAI Studio
+    - Der **Bereitstellungsname**, den Sie für Ihre Modellbereitstellung angegeben haben (verfügbar auf der Seite **Bereitstellungen** in Azure KI Studio).
 5. Speichern Sie die Konfigurationsdatei.
 
 ## Hinzufügen von Code zum Verwenden des Azure OpenAI-Diensts
