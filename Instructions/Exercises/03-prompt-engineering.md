@@ -341,6 +341,8 @@ Nachdem Ihre App konfiguriert wurde, führen Sie sie aus, um Ihre Anforderung an
     - Call for donations to be given at our website
     ```
 
+    > **Tipp**: Möglicherweise stellen Sie fest, dass die automatische Eingabe in der VM nicht gut mit mehrstufigen Eingabeaufforderungen funktioniert. Wenn dieses Problem besteht, kopieren Sie die gesamte Eingabeaufforderung und fügen Sie sie in Visual Studio Code ein.
+
 1. Beobachten Sie die Ausgabe. Dieses Mal werden Sie wahrscheinlich das Format einer E-Mail sehen, in der die Tiere und der Spendenaufruf enthalten sind.
 1. Geben Sie als Nächstes die folgenden Eingabeaufforderungen ein, die zusätzlich den Inhalt angeben:
 
