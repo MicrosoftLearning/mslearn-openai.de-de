@@ -78,6 +78,7 @@ Um diese Modelle zu implementieren, verwenden Sie AI Studio.
 1. Navigieren Sie im Azure-Portal zu Ihrer Azure OpenAI-Ressource. Verwenden Sie dann den Link, um Ihre Ressource in **Azure AI Studio** zu öffnen.
 1. Zeigen Sie in Azure AI Studio auf der Seite "**Deployments"** Ihre vorhandenen Modellbereitstellungen an. Erstellen Sie dann eine neue Basismodellbereitstellung des Modells **text-embedding-ada-002** mit den folgenden Einstellungen:
     - **Name der Bereitstellung**: text-embedding-ada-002
+    - **Modell**: text-embedding-ada-002
     - **Modellversion**: *Die Standardversion*
     - **Bereitstellungstyp**: Standard
     - **Ratenlimit für Token pro Minute**: 5K\*
