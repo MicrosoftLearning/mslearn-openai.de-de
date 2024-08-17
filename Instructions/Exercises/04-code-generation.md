@@ -39,17 +39,19 @@ Wenn Sie noch keine Azure OpenAI-Ressource haben, stellen Sie eine in Ihrem Azur
 
 ## Bereitstellen eines Modells
 
-Azure OpenAI bietet ein webbasiertes Portal namens **Azure OpenAI Studio**, das Sie zum Bereitstellen, Verwalten und Erkunden von Modellen verwenden können. Sie beginnen damit, Azure OpenAI kennenzulernen, indem Sie Azure OpenAI Studio verwenden, um ein Modell bereitzustellen.
+Azure bietet ein webbasiertes Portal namens **Azure AI Studio**, das Sie zur Bereitstellung, Verwaltung und Untersuchung von Modellen verwenden können. Sie beginnen Ihre Erkundung von Azure OpenAI, indem Sie Azure AI Studio verwenden, um ein Modell bereitzustellen.
 
-1. Verwenden Sie auf der Seite **Übersicht** für Ihre Azure OpenAI-Ressource die Schaltfläche **Zu Azure OpenAI Studio wechseln**, um Azure OpenAI Studio in einer neuen Browserregisterkarte zu öffnen.
-2. Ihre vorhandenen Modellbereitstellungen finden Sie in Azure OpenAI Studio auf der Seite **Bereitstellungen**. Falls noch nicht vorhanden, erstellen Sie eine neue Bereitstellung des **gpt-35-turbo-16k**-Modells mit den folgenden Einstellungen:
+> **Hinweis**: Während Sie Azure AI Studio verwenden, werden möglicherweise Meldungsfelder mit Vorschlägen für auszuführende Aufgaben angezeigt. Sie können diese schließen und die Schritte in dieser Übung ausführen.
+
+1. Scrollen Sie im Azure-Portal auf der Seite **Übersicht** für Ihre Azure OpenAI-Ressource nach unten zum Abschnitt **Erste Schritte** und wählen Sie die Schaltfläche aus, um zu **AI Studio** zu gelangen.
+1. Wählen Sie in Azure AI Studio im linken Bereich die Seite "**Deployments**" aus und sehen Sie sich Ihre vorhandenen Modellbereitstellungen an. Falls noch nicht vorhanden, erstellen Sie eine neue Bereitstellung des **gpt-35-turbo-16k**-Modells mit den folgenden Einstellungen:
     - **Bereitstellungsname**: *Ein eindeutiger Name Ihrer Wahl*
     - **Modell**: gpt-35-turbo-16k *(wenn das 16k-Modell nicht verfügbar ist, wählen Sie gpt-35-turbo)*
-    - **Modellversion**: Automatische Aktualisierung auf die Standardeinstellung
+    - **Modellversion**: *Standardversion verwenden*
     - **Bereitstellungstyp**: Standard
     - **Ratenlimit für Token pro Minute**: 5K\*
     - **Inhaltsfilter**: Standard
-    - **Dynamisches Kontingent aktivieren**: Aktiviert
+    - **Dynamische Quote aktivieren**: Deaktiviert
 
     > \* Ein Ratenlimit von 5.000 Token pro Minute ist mehr als ausreichend, um diese Aufgabe zu erfüllen und gleichzeitig Kapazität für andere Personen zu schaffen, die das gleiche Abonnement nutzen.
 
@@ -57,13 +59,12 @@ Azure OpenAI bietet ein webbasiertes Portal namens **Azure OpenAI Studio**, das 
 
 Überprüfen Sie vor der Verwendung in Ihrer App, wie Azure OpenAI Code im Playground für Chats generieren und erklären kann.
 
-1. Wählen Sie in **Azure OpenAI Studio** unter `https://oai.azure.com` im Abschnitt **Playground** die Seite **Chat** aus. Die Playground-Seite **Chat** besteht aus drei Hauptabschnitten:
-    - **Setup**: wird zum Festlegen des Kontexts für die Antworten des Modells verwendet
+1. Wählen Sie im Abschnitt **Playground** die Seite **Chat** aus. Die Seite "**Chat** Playground" besteht aus einer Reihe von Schaltflächen und zwei Hauptbereichen (die je nach Bildschirmauflösung horizontal von rechts nach links oder vertikal von oben nach unten angeordnet werden können):
+    - **Konfiguration** – wird verwendet, um Ihre Bereitstellung auszuwählen, Systemmeldungen zu definieren und Parameter für die Interaktion mit Ihrer Bereitstellung festzulegen.
     - **Chatsitzung**: wird zum Senden von Chat-Nachrichten und Ansehen von Antworten verwendet
-    - **Konfiguration**: wird zum Konfigurieren von Einstellungen für die Modellbereitstellung verwendet
-2. Stellen Sie im Bereich **Konfiguration** sicher, dass Ihre Modellbereitstellung ausgewählt ist.
-3. Legen Sie im Bereich **Setup** die Systemmeldung auf `You are a programming assistant helping write code` fest, und wenden Sie die Änderungen an.
-4. Senden Sie in der **Chatsitzung** die folgende Abfrage:
+1. Stellen Sie unter **Bereitstellungen** sicher, dass Ihre Modellbereitstellung ausgewählt ist.
+1. Legen Sie im Bereich "**System message**" die Systemmeldung auf `You are a programming assistant helping write code` fest und übernehmen Sie die Änderungen.
+1. Senden Sie in der **Chatsitzung** die folgende Abfrage:
 
     ```
     Write a function in python that takes a character and a string as input, and returns how many times the character appears in the string
@@ -71,11 +72,11 @@ Azure OpenAI bietet ein webbasiertes Portal namens **Azure OpenAI Studio**, das 
 
     Das Modell antwortet wahrscheinlich mit einer Funktion, mit einer Erklärung, was die Funktion tut und wie sie aufgerufen werden kann.
 
-5. Senden Sie als Nächstes die Eingabeaufforderung `Do the same thing, but this time write it in C#`.
+1. Senden Sie als Nächstes die Eingabeaufforderung `Do the same thing, but this time write it in C#`.
 
     Das Modell reagierte wahrscheinlich sehr ähnlich wie beim ersten Mal, diesmal jedoch in C#. Sie können es erneut nach einer anderen Sprache Ihrer Wahl oder einer Funktion fragen, um eine andere Aufgabe zu erfüllen, wie z. B. das Umkehren einer Eingabezeichenfolge.
 
-6. Als Nächstes erkunden wir den Einsatz von KI, um Code zu verstehen. Senden Sie die folgende Eingabeaufforderung als Benutzernachricht.
+1. Als Nächstes erkunden wir den Einsatz von KI, um Code zu verstehen. Senden Sie die folgende Eingabeaufforderung als Benutzernachricht.
 
     ```
     What does the following function do?  
@@ -153,7 +154,7 @@ Es werden Anwendungen für C# und Python bereitgestellt sowie eine Beispieltextd
     
 4. Aktualisieren Sie die Konfigurationswerte, um Folgendes einzuschließen:
     - Den **Endpunkt** und einen **Schlüssel** aus der von Ihnen erstellten Azure OpenAI-Ressource (verfügbar auf der Seite **Schlüssel und Endpunkt** für Ihre Azure OpenAI-Ressource im Azure-Portal).
-    - Der **Bereitstellungsname**, den Sie für die Modellbereitstellung angegeben haben, verfügbar auf der Seite **Bereitstellungen** in Azure OpenAI Studio
+    - Der **Bereitstellungsname**, den Sie für Ihre Modellbereitstellung angegeben haben (verfügbar auf der Seite "**Bereitstellungen"** in Azure AI Studio).
 5. Speichern Sie die Konfigurationsdatei.
 
 ## Hinzufügen von Code zum Verwenden Ihres Azure OpenAI-Dienstmodells

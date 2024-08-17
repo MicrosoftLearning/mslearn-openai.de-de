@@ -5,7 +5,7 @@ lab:
 
 # Erste Schritte mit Azure OpenAI Service
 
-Azure OpenAI Service bringt die von OpenAI entwickelten generativen KI-Modelle auf die Azure-Plattform und ermöglicht Ihnen die Entwicklung leistungsstarker KI-Lösungen, die von der Sicherheit, Skalierbarkeit und Integration anderer Dienste der Azure-Cloudplattform profitieren. In dieser Übung erfahren Sie, wie Sie die Arbeit mit Azure OpenAI beginnen, indem Sie den Dienst als Azure-Ressource bereitstellen und Azure OpenAI Studio verwenden, um generative KI-Modelle bereitzustellen und zu untersuchen.
+Azure OpenAI Service bringt die von OpenAI entwickelten generativen KI-Modelle auf die Azure-Plattform und ermöglicht Ihnen die Entwicklung leistungsstarker KI-Lösungen, die von der Sicherheit, Skalierbarkeit und Integration anderer Dienste der Azure-Cloudplattform profitieren. In dieser Übung lernen Sie, wie Sie mit Azure OpenAI beginnen, indem Sie den Dienst als Azure-Ressource bereitstellen und Azure AI Studio verwenden, um generative KI-Modelle bereitzustellen und zu untersuchen.
 
 In dem Szenario für diese Übung führen Sie die Rolle eines Softwareentwicklers aus, der beauftragt wurde, einen KI-Agent zu implementieren, der generative KI verwenden kann, um einer Marketingorganisation zu helfen, ihre Effektivität bei der Erreichung von Kunden zu verbessern und neue Produkte zu bewerben. Die in der Übung verwendeten Techniken können auf jedes Szenario angewendet werden, in dem eine Organisation generative KI-Modelle verwenden möchte, um Mitarbeitern zu helfen, effektiver und produktiver zu arbeiten.
 
@@ -39,37 +39,33 @@ Wenn Sie noch keine Azure OpenAI-Ressource haben, stellen Sie eine in Ihrem Azur
 
 ## Bereitstellen eines Modells
 
-Azure OpenAI Service bietet ein webbasiertes Portal namens **Azure OpenAI Studio**, das Sie zum Bereitstellen, Verwalten und Erkunden von Modellen verwenden können. Sie beginnen damit, Azure OpenAI kennenzulernen, indem Sie Azure OpenAI Studio verwenden, um ein Modell bereitzustellen.
+Azure bietet ein webbasiertes Portal namens **Azure AI Studio**, das Sie zur Bereitstellung, Verwaltung und Untersuchung von Modellen verwenden können. Sie beginnen Ihre Erkundung von Azure OpenAI, indem Sie Azure AI Studio verwenden, um ein Modell bereitzustellen.
 
-> **Hinweis:** Während Sie Azure OpenAI Studio verwenden, werden möglicherweise Meldungsfelder angezeigt, die Aufgaben vorschlagen, die Sie ausführen können. Sie können diese schließen und die Schritte in dieser Übung ausführen.
+> **Hinweis**: Während Sie Azure AI Studio verwenden, werden möglicherweise Meldungsfelder mit Vorschlägen für auszuführende Aufgaben angezeigt. Sie können diese schließen und die Schritte in dieser Übung ausführen.
 
-1. Verwenden Sie im Azure-Portal auf der Seite **Übersicht** für Ihre Azure OpenAI-Ressource die Schaltfläche **Zu Azure OpenAI Studio wechseln**, um Azure OpenAI Studio in einer neuen Browserregisterkarte zu öffnen.
-
-    Nachdem die neue Registerkarte geöffnet wurde, können Sie alle Bannerbenachrichtigungen für neue Vorschaudienste schließen, die oben auf der Azure OpenAI Studio-Seite angezeigt werden.
-
-1. Wählen Sie in Azure OpenAI Studio im Bereich auf der linken Seite die Seite **Bereitstellungen** aus, und zeigen Sie Ihre vorhandenen Modellbereitstellungen an. Falls noch nicht vorhanden, erstellen Sie eine neue Bereitstellung des **gpt-35-turbo-16k**-Modells mit den folgenden Einstellungen:
+1. Scrollen Sie im Azure-Portal auf der Seite **Übersicht** für Ihre Azure OpenAI-Ressource nach unten zum Abschnitt **Erste Schritte** und wählen Sie die Schaltfläche aus, um zu **AI Studio** zu gelangen.
+1. Wählen Sie in Azure AI Studio im linken Bereich die Seite "**Deployments**" aus und sehen Sie sich Ihre vorhandenen Modellbereitstellungen an. Falls noch nicht vorhanden, erstellen Sie eine neue Bereitstellung des **gpt-35-turbo-16k**-Modells mit den folgenden Einstellungen:
     - **Bereitstellungsname**: *Ein eindeutiger Name Ihrer Wahl*
     - **Modell**: gpt-35-turbo-16k *(wenn das 16k-Modell nicht verfügbar ist, wählen Sie gpt-35-turbo)*
-    - **Modellversion**: Automatische Aktualisierung auf die Standardeinstellung
+    - **Modellversion**: *Standardversion verwenden*
     - **Bereitstellungstyp**: Standard
     - **Ratenlimit für Token pro Minute**: 5K\*
     - **Inhaltsfilter**: Standard
-    - **Dynamisches Kontingent aktivieren**: Aktiviert
+    - **Dynamische Quote aktivieren**: Deaktiviert
 
     > \* Ein Ratenlimit von 5.000 Token pro Minute ist mehr als ausreichend, um diese Aufgabe zu erfüllen und gleichzeitig Kapazität für andere Personen zu schaffen, die das gleiche Abonnement nutzen.
 
 ## Verwenden des Chat-Playgrounds
 
-Nachdem Sie ein Modell bereitgestellt haben, können Sie es verwenden, um Antworten basierend auf Aufforderungen in natürlicher Sprache zu generieren. Der *Chat*-Playground in Azure OpenAI Studio bietet eine Chatbotschnittstelle für GPT 3.5 und höhere Modelle.
+Nachdem Sie ein Modell bereitgestellt haben, können Sie es verwenden, um Antworten basierend auf Aufforderungen in natürlicher Sprache zu generieren. Der Playground "*Chat*" in Azure AI Studio stellt eine Chatbot-Schnittstelle für GPT 3.5- und höhere Modelle bereit.
 
 > **Hinweis:** Der *Chat*-Playground verwendet die *ChatCompletions*-API anstelle der älteren *Completions*-API, die vom *Completions*-Playground verwendet wird. Der Completions-Playground wird aus Gründen der Kompatibilität mit älteren Modellen bereitgestellt.
 
-1. Wählen Sie im Abschnitt **Playground** die Seite **Chat** aus. Die **Chat**-Playground-Seite besteht aus drei Hauptbereichen (die je nach Bildschirmauflösung horizontal von rechts nach links oder vertikal von oben nach unten angeordnet sein können):
-    - **Setup**: wird zum Festlegen des Kontexts für die Antworten des Modells verwendet
+1. Wählen Sie im Abschnitt **Playground** die Seite **Chat** aus. Die Seite "**Chat** Playground" besteht aus einer Reihe von Schaltflächen und zwei Hauptbereichen (die je nach Bildschirmauflösung horizontal von rechts nach links oder vertikal von oben nach unten angeordnet werden können):
+    - **Konfiguration** – wird verwendet, um Ihre Bereitstellung auszuwählen, Systemmeldungen zu definieren und Parameter für die Interaktion mit Ihrer Bereitstellung festzulegen.
     - **Chatsitzung**: wird zum Senden von Chat-Nachrichten und Ansehen von Antworten verwendet
-    - **Konfiguration**: wird zum Konfigurieren von Einstellungen für die Modellbereitstellung verwendet
-1. Stellen Sie im Bereich **Konfiguration** sicher, dass die gpt-35-turbo-16k-Modellimplementierung ausgewählt ist.
-1. Überprüfen Sie im Bereich **Setup** die standardmäßige **Systemmeldung**, die wie folgt lauten sollte: *Sie sind ein KI-Assistent, der Benutzern dabei hilft, Informationen zu finden.* Die Systemmeldung ist in den an das Modell übermittelten Eingabeaufforderungen enthalten und stellt Kontext für die Antworten des Modells bereit. Sie legt die Erwartungen fest, wie ein KI-Agent basierend auf dem Modell mit dem Benutzer interagieren soll.
+1. Stellen Sie unter **Einsätze** sicher, dass Ihr gpt-35-turbo-16k-Modelleinsatz ausgewählt ist.
+1. Überprüfen Sie die Standard-**Systemmeldung**, die lauten sollte: *Sie sind ein KI-Assistent, der Menschen dabei hilft, Informationen zu finden.* Die Systemmeldung ist in den an das Modell übermittelten Eingabeaufforderungen enthalten und stellt Kontext für die Antworten des Modells bereit. Sie legt die Erwartungen fest, wie ein KI-Agent basierend auf dem Modell mit dem Benutzer interagieren soll.
 1. Geben Sie im Bereich **Chatsitzung** die Benutzerabfrage `How can I use generative AI to help me market a new product?` ein.
 
     > **Hinweis**: Sie erhalten möglicherweise die Antwort, dass die API-Bereitstellung noch nicht abgeschlossen ist. Wenn dies der Fall ist, warten Sie ein paar Minuten, und versuchen Sie es erneut.
@@ -84,7 +80,7 @@ Nachdem Sie ein Modell bereitgestellt haben, können Sie es verwenden, um Antwor
 
 Bisher haben Sie eine Chatunterhaltung mit Ihrem Modell basierend auf der Standardsystemnachricht durchgeführt. Sie können das Systemsetup anpassen, um mehr Kontrolle über die Arten von Antworten zu haben, die von Ihrem Modell generiert werden.
 
-1. Wählen Sie im Bereich **Setup** unter **Systemnachrichtenvorlage verwenden** die Vorlage **Assistent für das Schreiben von Marketingtexten** aus, und bestätigen Sie, dass Sie die Systemmeldung aktualisieren möchten.
+1. Wählen Sie in der Hauptsymbolleiste die Option "**Prompt-Beispiele**" aus und verwenden Sie die Prompt-Vorlage "**Marketing Writing Assistant**".
 1. Überprüfen Sie die neue Systemmeldung, die beschreibt, wie ein KI-Agent das Modell verwenden soll, um zu antworten.
 1. Geben Sie im Bereich **Chatsitzung** die Benutzerabfrage `Create an advertisement for a new scrubbing brush` ein.
 1. Überprüfen Sie die Antwort, die den Werbetext für eine Scrubbing-Bürste enthalten sollte. Der Text kann recht umfangreich und kreativ sein.
@@ -96,7 +92,7 @@ Bisher haben Sie eine Chatunterhaltung mit Ihrem Modell basierend auf der Standa
 
     Die Antwort sollte nun nützlicher sein, aber um noch mehr Kontrolle über die Ausgabe des Modells zu erhalten, können Sie ein oder mehrere *Few-Shot*-Beispiele bereitstellen, auf denen die Antworten basieren sollen.
 
-1. Wählen Sie im Bereich **Setup** unter **Beispiele** die Option **Hinzufügen** aus. Geben Sie dann die folgende Nachricht und Antwort in die angegebenen Felder ein:
+1. Erweitern Sie unter dem Textfeld **Systemnachricht** die Dropdown-Liste für **Abschnitt hinzufügen** und wählen Sie **Beispiele** aus. Geben Sie dann die folgende Nachricht und Antwort in die angegebenen Felder ein:
 
     **Benutzer**:
     
@@ -139,7 +135,7 @@ Sie haben untersucht, wie Systemnachricht, Beispiele und Eingabeaufforderungen d
 
 ## Bereitstellen Ihres Modells in einer Web-App
 
-Nachdem Sie nun einige der Funktionen eines generativen KI-Modells im Azure OpenAI Studio-Playground untersucht haben, können Sie eine Azure Web App bereitstellen, um eine einfache KI-Agent-Schnittstelle zu bieten, über die Benutzer mit dem Modell chatten können.
+Nachdem Sie nun einige der Funktionen eines generativen KI-Modells im Azure AI Studio Playground kennengelernt haben, können Sie eine Azure-Web-App bereitstellen, um eine grundlegende KI-Agentenschnittstelle anzubieten, über die Benutzer mit dem Modell chatten können.
 
 1. Wählen Sie oben rechts auf der **Chat**-Playground-Seite im Menü **Bereitstellen an** die Option **Eine neue Web-App** aus.
 1. Erstellen Sie im Dialogfeld **In einer Web-App bereitstellen** eine neue Web-App mit den folgenden Einstellungen:
@@ -162,7 +158,7 @@ Nachdem Sie nun einige der Funktionen eines generativen KI-Modells im Azure Open
 
     > **Hinweis:** Sie haben das *Modell* in einer Web-App bereitgestellt, aber diese Bereitstellung enthält nicht die Systemeinstellungen und Parameter, die Sie im Playground festgelegt haben; daher spiegelt die Antwort möglicherweise nicht die Beispiele wider, die Sie im Playground angegeben haben. In einem echten Szenario fügen Sie Ihrer Anwendung Logik hinzu, um die Eingabeaufforderung so zu ändern, dass sie die entsprechenden Kontextdaten für die Art der Antwort enthält, die Sie generieren möchten. Diese Art von Anpassung liegt außerhalb des Umfangs dieser Einführungsübung, aber Sie können sich in anderen Übungen und Produktdokumentationen über Prompt Engineering-Techniken und Azure OpenAI-APIs informieren.
 
-1. Wenn Sie mit dem Experimentieren mit Ihrem Modell in der Web-App fertig sind, schließen Sie die Registerkarte „Web-App“ in Ihrem Browser, um zu Azure OpenAI Studio zurückzukehren.
+1. Wenn Sie mit Ihrem Modell in der Web-App fertig sind, schließen Sie die Registerkarte "Web-App" in Ihrem Browser, um zu Azure AI Studio zurückzukehren.
 
 ## Bereinigung
 

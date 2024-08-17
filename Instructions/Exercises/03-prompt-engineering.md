@@ -39,17 +39,19 @@ Wenn Sie noch keine Azure OpenAI-Ressource haben, stellen Sie eine in Ihrem Azur
 
 ## Bereitstellen eines Modells
 
-Azure OpenAI bietet ein webbasiertes Portal namens **Azure OpenAI Studio**, das Sie zum Bereitstellen, Verwalten und Erkunden von Modellen verwenden können. Sie beginnen damit, Azure OpenAI kennenzulernen, indem Sie Azure OpenAI Studio verwenden, um ein Modell bereitzustellen.
+Azure bietet ein webbasiertes Portal namens **Azure AI Studio**, das Sie zur Bereitstellung, Verwaltung und Untersuchung von Modellen verwenden können. Sie beginnen Ihre Erkundung von Azure OpenAI, indem Sie Azure AI Studio verwenden, um ein Modell bereitzustellen.
 
-1. Verwenden Sie auf der Seite **Übersicht** für Ihre Azure OpenAI-Ressource die Schaltfläche **Zu Azure OpenAI Studio wechseln**, um Azure OpenAI Studio in einer neuen Browserregisterkarte zu öffnen.
-2. Ihre vorhandenen Modellbereitstellungen finden Sie in Azure OpenAI Studio auf der Seite **Bereitstellungen**. Falls noch nicht vorhanden, erstellen Sie eine neue Bereitstellung des **gpt-35-turbo-16k**-Modells mit den folgenden Einstellungen:
+> **Hinweis**: Während Sie Azure AI Studio verwenden, werden möglicherweise Meldungsfelder mit Vorschlägen für auszuführende Aufgaben angezeigt. Sie können diese schließen und die Schritte in dieser Übung ausführen.
+
+1. Scrollen Sie im Azure-Portal auf der Seite **Übersicht** für Ihre Azure OpenAI-Ressource nach unten zum Abschnitt **Erste Schritte** und wählen Sie die Schaltfläche aus, um zu **AI Studio** zu gelangen.
+1. Wählen Sie in Azure AI Studio im linken Bereich die Seite "**Deployments**" aus und sehen Sie sich Ihre vorhandenen Modellbereitstellungen an. Falls noch nicht vorhanden, erstellen Sie eine neue Bereitstellung des **gpt-35-turbo-16k**-Modells mit den folgenden Einstellungen:
     - **Bereitstellungsname**: *Ein eindeutiger Name Ihrer Wahl*
     - **Modell**: gpt-35-turbo-16k *(wenn das 16k-Modell nicht verfügbar ist, wählen Sie gpt-35-turbo)*
-    - **Modellversion**: Automatische Aktualisierung auf die Standardeinstellung
+    - **Modellversion**: *Standardversion verwenden*
     - **Bereitstellungstyp**: Standard
     - **Ratenlimit für Token pro Minute**: 5K\*
     - **Inhaltsfilter**: Standard
-    - **Dynamisches Kontingent aktivieren**: Aktiviert
+    - **Dynamische Quote aktivieren**: Deaktiviert
 
     > \* Ein Ratenlimit von 5.000 Token pro Minute ist mehr als ausreichend, um diese Aufgabe zu erfüllen und gleichzeitig Kapazität für andere Personen zu schaffen, die das gleiche Abonnement nutzen.
 
@@ -57,12 +59,11 @@ Azure OpenAI bietet ein webbasiertes Portal namens **Azure OpenAI Studio**, das 
 
 Beginnen wir mit der Erkundung einiger Prompt Engineering-Technik im Chat-Playground.
 
-1. Wählen Sie in **Azure OpenAI Studio** unter `https://oai.azure.com` im Abschnitt **Playground** die Seite **Chat** aus. Die Playground-Seite **Chat** besteht aus drei Hauptabschnitten:
-    - **Setup**: wird zum Festlegen des Kontexts für die Antworten des Modells verwendet
+1. Wählen Sie im Abschnitt **Playground** die Seite **Chat** aus. Die Seite "**Chat** Playground" besteht aus einer Reihe von Schaltflächen und zwei Hauptbereichen (die je nach Bildschirmauflösung horizontal von rechts nach links oder vertikal von oben nach unten angeordnet werden können):
+    - **Konfiguration** – wird verwendet, um Ihre Bereitstellung auszuwählen, Systemmeldungen zu definieren und Parameter für die Interaktion mit Ihrer Bereitstellung festzulegen.
     - **Chatsitzung**: wird zum Senden von Chat-Nachrichten und Ansehen von Antworten verwendet
-    - **Konfiguration**: wird zum Konfigurieren von Einstellungen für die Modellbereitstellung verwendet
-2. Stellen Sie im Bereich **Konfiguration** sicher, dass Ihre Modellbereitstellung ausgewählt ist.
-3. Wählen Sie im Bereich **Setup** die Standardvorlage für Systemnachrichten aus, um den Kontext für die Chatsitzung festzulegen. Die Standardsystemnachricht lautet *Sie sind ein KI-Assistent, der Personen hilft, Informationen zu finden*.
+2. Stellen Sie unter **Einsätze** sicher, dass Ihr gpt-35-turbo-16k-Modelleinsatz ausgewählt ist.
+1. Überprüfen Sie die Standard-**Systemmeldung**, die lauten sollte: *Sie sind ein KI-Assistent, der Menschen dabei hilft, Informationen zu finden.*
 4. Senden Sie in der **Chatsitzung** die folgende Abfrage:
 
     ```prompt
@@ -79,9 +80,9 @@ Beginnen wir mit der Erkundung einiger Prompt Engineering-Technik im Chat-Playgr
 
     Die Antwort enthält eine Beschreibung des Artikels. Nehmen wir an, Sie möchten ein spezielleres Format für die Artikelkategorisierung.
 
-5. Ändern Sie im Abschnitt **Setup** die Systemmeldung in `You are a news aggregator that categorizes news articles.`.
+5. Ändern Sie im Abschnitt "**Konfiguration"** die Systemmeldung in `You are a news aggregator that categorizes news articles.`
 
-6. Wählen Sie unter der neuen Systemmeldung im Abschnitt **Beispiele** die Schaltfläche **Hinzufügen** aus. Fügen Sie anschließend das folgende Beispiel hinzu.
+6. Wählen Sie in der neuen Systemnachricht die Schaltfläche "**Abschnitt hinzufügen**" und dann "**Beispiele**" aus. Fügen Sie anschließend das folgende Beispiel hinzu.
 
     **Benutzer**:
     
@@ -126,7 +127,7 @@ Beginnen wir mit der Erkundung einiger Prompt Engineering-Technik im Chat-Playgr
     Entertainment
     ```
 
-8. Verwenden Sie die Schaltfläche **Änderungen anwenden** oben im Abschnitt **Setup**, um die Systemmeldung zu aktualisieren.
+8. Verwenden Sie die Schaltfläche "**Änderungen übernehmen**" oben im Abschnitt "**Konfiguration**", um Ihre Änderungen zu speichern.
 
 9. Geben Sie im Abschnitt **Chatsitzung** erneut die folgende Eingabeaufforderung ein:
 
@@ -144,7 +145,7 @@ Beginnen wir mit der Erkundung einiger Prompt Engineering-Technik im Chat-Playgr
 
     Die Kombination aus einer spezifischeren Systemmeldung und einigen Beispielen für erwartete Abfragen und Antworten führt zu einem konsistenten Format für die Ergebnisse.
 
-10. Ändern Sie im Abschnitt **Setup** die Systemmeldung wieder in die Standardvorlage, die `You are an AI assistant that helps people find information.` ohne Beispiele sein sollte. Übernehmen Sie dann die Änderungen.
+10. Ändern Sie die Systemmeldung zurück zur Standardvorlage, die `You are an AI assistant that helps people find information.` ohne Beispiele sein sollte. Übernehmen Sie dann die Änderungen.
 
 11. Geben Sie im Abschnitt **Chatsitzung** die folgende Eingabeaufforderung ein:
 
@@ -209,7 +210,7 @@ Anwendungen für C# und Python wurden bereitgestellt, und beide Apps verfügen �
     
 4. Aktualisieren Sie die Konfigurationswerte, um Folgendes einzuschließen:
     - Den **Endpunkt** und einen **Schlüssel** aus der von Ihnen erstellten Azure OpenAI-Ressource (verfügbar auf der Seite **Schlüssel und Endpunkt** für Ihre Azure OpenAI-Ressource im Azure-Portal).
-    - Der **Bereitstellungsname**, den Sie für die Modellbereitstellung angegeben haben, verfügbar auf der Seite **Bereitstellungen** in Azure OpenAI Studio
+    - Der **Bereitstellungsname**, den Sie für Ihre Modellbereitstellung angegeben haben (verfügbar auf der Seite "**Bereitstellungen"** in Azure AI Studio).
 5. Speichern Sie die Konfigurationsdatei.
 
 ## Hinzufügen von Code zum Verwenden des Azure OpenAI-Diensts
@@ -300,7 +301,7 @@ Jetzt können Sie das Azure OpenAI-SDK verwenden, um Ihr bereitgestelltes Modell
 
 Nachdem Ihre App konfiguriert wurde, führen Sie sie aus, um Ihre Anforderung an Ihr Modell zu senden und die Antwort zu erhalten. Sie werden feststellen, dass der einzige Unterschied zwischen den verschiedenen Optionen der Inhalt der Eingabeaufforderung ist. Alle anderen Parameter (z. B. Tokenanzahl und Temperatur) bleiben für jede Anforderung gleich.
 
-1. Öffnen Sie im Ordner Ihrer bevorzugten Sprache `system.txt` in Visual Studio Code. Geben Sie für jede der Interationen die **Systemmeldung** in diese Datei ein, und speichern Sie sie. Jede Iteration wird zuerst angehalten, um die Systemmeldung zu ändern.
+1. Öffnen Sie im Ordner Ihrer bevorzugten Sprache `system.txt` in Visual Studio Code. Für jede Interaktion rufen Sie die **Systemnachricht** in dieser Datei auf und speichern sie. Jede Iteration wird zuerst angehalten, um die Systemmeldung zu ändern.
 1. Stellen Sie im interaktiven Terminalbereich sicher, dass der Ordnerkontext der Ordner für Ihre bevorzugte Sprache ist. Geben Sie dann den folgenden Befehl ein, um die Anwendung auszuführen.
 
     - **C#** : `dotnet run`
@@ -339,6 +340,8 @@ Nachdem Ihre App konfiguriert wurde, führen Sie sie aus, um Ihre Anforderung an
     - It specializes in elephants 
     - Call for donations to be given at our website
     ```
+
+    > **Tipp**: Möglicherweise stellen Sie fest, dass die automatische Eingabe in der VM nicht gut mit mehrstufigen Eingabeaufforderungen funktioniert. Wenn dieses Problem besteht, kopieren Sie die gesamte Eingabeaufforderung und fügen Sie sie in Visual Studio Code ein.
 
 1. Beobachten Sie die Ausgabe. Dieses Mal werden Sie wahrscheinlich das Format einer E-Mail sehen, in der die Tiere und der Spendenaufruf enthalten sind.
 1. Geben Sie als Nächstes die folgenden Eingabeaufforderungen ein, die zusätzlich den Inhalt angeben:

@@ -16,7 +16,7 @@ Diese Übung dauert ungefähr **25** Minuten.
 Bevor Sie Azure OpenAI verwenden können, um Bilder zu generieren, müssen Sie eine Azure OpenAI-Ressource in Ihrem Azure-Abonnement bereitstellen. Die Ressource muss sich in einer Region befinden, in der DALL-E-Modelle unterstützt werden.
 
 1. Melden Sie sich beim **Azure-Portal** unter `https://portal.azure.com` an.
-2. Erstellen Sie eine **Azure OpenAI-Ressource** mit den folgenden Einstellungen:
+1. Erstellen Sie eine **Azure OpenAI-Ressource** mit den folgenden Einstellungen:
     - **Abonnement:** *Wählen Sie ein Azure-Abonnement aus, das für den Zugriff auf den Azure OpenAI-Dienst genehmigt wurde, einschließlich DALL-E*
     - **Ressourcengruppe**: *Wählen Sie eine Ressourcengruppe aus, oder erstellen Sie eine*.
     - **Region**: *Wählen Sie entweder **USA, Osten** oder **Schweden, Mitte*** aus\*
@@ -25,21 +25,29 @@ Bevor Sie Azure OpenAI verwenden können, um Bilder zu generieren, müssen Sie e
 
     > \* DALL-E 3-Modelle sind nur in Azure OpenAI-Dienstressourcen in den Regionen **USA, Osten** und **Schweden, Mitte** verfügbar.
 
-3. Warten Sie, bis die Bereitstellung abgeschlossen ist. Wechseln Sie dann zur bereitgestellten Azure OpenAI-Ressource im Azure-Portal.
+1. Warten Sie, bis die Bereitstellung abgeschlossen ist. Wechseln Sie dann zur bereitgestellten Azure OpenAI-Ressource im Azure-Portal.
+1. Scrollen Sie auf der Seite **Übersicht** für Ihre Azure OpenAI-Ressource nach unten zum Abschnitt **Erste Schritte** und wählen Sie die Schaltfläche aus, um zu **KI Studio** zu gelangen.
+1. Wählen Sie in Azure AI Studio im linken Bereich die Seite "**Deployments**" aus und sehen Sie sich Ihre vorhandenen Modellbereitstellungen an. Wenn Sie noch kein DALL-E 3 haben, erstellen Sie eine neue Bereitstellung des **dall-e-3**-Modells mit den folgenden Einstellungen:
+    - **Name der Bereitstellung**: dalle3
+    - **Modellversion**: *Standardversion verwenden*
+    - **Bereitstellungstyp**: Standard
+    - **Kapazitätseinheiten**: 1.000
+    - **Inhaltsfilter**: Standard
+    - **Dynamische Quote aktivieren**: Deaktiviert
+1. Navigieren Sie nach dem Einsatz zurück zur Seite "**Bilder**" im linken Fensterbereich.
 
-## Erkunden der Bildgenerierung im DALL-E-Playground
+## Erkunden Sie die Bilderzeugung im Playground für Bilder
 
-Sie können den DALL-E-Playground in **Azure OpenAI Studio** verwenden, um mit der Bildgenerierung zu experimentieren.
+Sie können den Playground "Images" in **Azure AI Studio** verwenden, um mit der Bilderzeugung zu experimentieren.
 
-1. Verwenden Sie im Azure-Portal auf der Seite **Übersicht** Ihrer Azure OpenAI-Ressource die Schaltfläche **Erkunden**, um Azure OpenAI Studio auf einer neuen Browserregisterkarte zu öffnen. Alternativ können Sie direkt über `https://oai.azure.com` zu [Azure OpenAI Studio](https://oai.azure.com) navigieren.
-2. Wählen Sie im Abschnitt **Playground** den **DALL-E** Playground aus. Eine Bereitstellung des DALL-E-Modells namens *Dalle3* wird automatisch erstellt.
-3. Geben Sie im Feld **Eingabeaufforderung** eine Beschreibung eines Bilds ein, das Sie generieren möchten. Wählen Sie beispielsweise `An elephant on a skateboard` Wählen Sie dann **Generieren** aus, und zeigen Sie das generierte Bild an.
+1. Im Abschnitt "**Images Playground**" sollte Ihr Einsatz von DALL-E 3 automatisch ausgewählt werden. Falls nicht, wählen Sie es aus der Dropdown-Liste "Bereitstellung" aus.
+1. Geben Sie im Feld **Eingabeaufforderung** eine Beschreibung eines Bilds ein, das Sie generieren möchten. Wählen Sie beispielsweise `An elephant on a skateboard` Wählen Sie dann **Generieren** aus, und zeigen Sie das generierte Bild an.
 
-    ![Der DALL-E-Playground in Azure OpenAI Studio mit einem generierten Bild.](../media/dall-e-playground.png)
+    ![Der Playground "Images" in Azure AI Studio mit einem generierten Bild.](../media/images-playground.png)
 
-4. Ändern Sie die Eingabeaufforderung, um eine spezifischere Beschreibung bereitzustellen. Beispiel: `An elephant on a skateboard in the style of Picasso`. Generieren Sie dann das neue Bild, und überprüfen Sie die Ergebnisse.
+1. Ändern Sie die Eingabeaufforderung, um eine spezifischere Beschreibung bereitzustellen. Beispiel: `An elephant on a skateboard in the style of Picasso`. Generieren Sie dann das neue Bild, und überprüfen Sie die Ergebnisse.
 
-    ![Der DALL-E-Playground in Azure OpenAI Studio mit zwei generierten Bildern.](../media/dall-e-playground-new-image.png)
+    ![Der Playground "Images" in Azure AI Studio mit zwei generierten Bildern.](../media/images-playground-new-style.png)
 
 ## Verwenden der REST-API zum Generieren von Bildern
 
@@ -49,13 +57,13 @@ Der Azure OpenAI Service stellt eine REST-API bereit, die Sie verwenden können,
 
 Sehen wir uns nun an, wie Sie eine benutzerdefinierte App erstellen können, die Azure OpenAI Service verwendet, um Bilder zu generieren. Sie entwickeln Ihre App mit Visual Studio Code. Die Codedateien für Ihre App wurden in einem GitHub-Repository bereitgestellt.
 
-> **Tipp**: Wenn Sie das **mslearn-openai** -Repository bereits geklont haben, öffnen Sie es in Visual Studio Code. Führen Sie andernfalls die folgenden Schritte aus, um es in Ihrer Entwicklungsumgebung zu klonen.
+> **Tipp**: Wenn Sie das **mslearn-openai**-Repository bereits geklont haben, öffnen Sie es in Visual Studio Code. Führen Sie andernfalls die folgenden Schritte aus, um es in Ihrer Entwicklungsumgebung zu klonen.
 
 1. Starten Sie Visual Studio Code.
 2. Öffnen Sie die Palette (UMSCHALT+STRG+P), und führen Sie einen **Git: Clone**-Befehl aus, um das Repository `https://github.com/MicrosoftLearning/mslearn-openai` in einen lokalen Ordner zu klonen (der Ordner ist beliebig).
 3. Nachdem das Repository geklont wurde, öffnen Sie den Ordner in Visual Studio Code.
 
-    > **Hinweis:** Wenn Visual Studio Code eine Popupnachricht anzeigt, in der Sie aufgefordert werden, dem geöffneten Code zu vertrauen, klicken Sie auf die **Ja, ich vertraue den Autoren** -Option im Popup.
+    > **Hinweis:** Wenn Visual Studio Code eine Popupnachricht anzeigt, in der Sie aufgefordert werden, dem geöffneten Code zu vertrauen, klicken Sie auf die Option **Ja, ich vertraue den Autoren** im Popupfenster.
 
 4. Warten Sie, während zusätzliche Dateien zur Unterstützung der C#-Codeprojekte im Repository installiert werden.
 
@@ -87,6 +95,8 @@ Jetzt können Sie den Code untersuchen, der zum Aufrufen der REST-API und zum Ge
     - Der Code sendet eine HTTPS-Anforderung an den Endpunkt für Ihren Dienst, einschließlich des Schlüssels für Ihren Dienst im Header. Beide Werte werden aus der Konfigurationsdatei abgerufen.
     - Die Anforderung enthält einige Parameter, einschließlich der Eingabeaufforderung auf dem Bild, die Anzahl der zu generierenden Bilder und die Größe der generierten Bilder.
     - Die Antwort enthält eine überarbeitete Eingabeaufforderung, die das DALL-E-Modell von der vom Benutzer bereitgestellten Eingabeaufforderung extrapoliert hat, um es aussagekräftiger zu machen, und die URL für das generierte Bild.
+    
+    > **Wichtig**: Wenn Sie Ihrer Bereitstellung einen anderen Namen als den empfohlenen *dalle3* gegeben haben, müssen Sie den Code aktualisieren, um den Namen Ihrer Bereitstellung zu verwenden.
 
 ### Ausführen der App
 
