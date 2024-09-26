@@ -137,6 +137,8 @@ Sie haben untersucht, wie Systemnachricht, Beispiele und Eingabeaufforderungen d
 
 Nachdem Sie nun einige der Funktionen eines generativen KI-Modells im Azure AI Studio Playground kennengelernt haben, können Sie eine Azure-Web-App bereitstellen, um eine grundlegende KI-Agentenschnittstelle anzubieten, über die Benutzer mit dem Modell chatten können.
 
+> **Hinweis**: Azure KI Studio befindet sich noch in der Vorschau. Bei einigen Benutzenden kann die Bereitstellung in der Web-App aufgrund eines Fehlers in der Vorlage im Studio nicht bereitgestellt werden. Wenn dies der Fall ist, überspringen Sie diesen Abschnitt.
+
 1. Wählen Sie oben rechts auf der **Chat**-Playground-Seite im Menü **Bereitstellen an** die Option **Eine neue Web-App** aus.
 1. Erstellen Sie im Dialogfeld **In einer Web-App bereitstellen** eine neue Web-App mit den folgenden Einstellungen:
     - **Name**: *Ein eindeutiger Name*
