@@ -161,7 +161,7 @@ Anwendungen für C# und Python wurden bereitgestellt, und beide Apps verfügen �
     
 4. Aktualisieren Sie die Konfigurationswerte, um Folgendes einzuschließen:
     - Den **Endpunkt** und einen **Schlüssel** aus der von Ihnen erstellten Azure OpenAI-Ressource (verfügbar auf der Seite **Schlüssel und Endpunkt** für Ihre Azure OpenAI-Ressource im Azure-Portal).
-    - Der **Bereitstellungsname**, den Sie für Ihre Modellbereitstellung angegeben haben (verfügbar auf der Seite "**Bereitstellungen"** in Azure AI Studio).
+    - Der **Bereitstellungsname**, den Sie für die Bereitstellung des Modells „gpt-35-turbo“ angegeben haben (verfügbar auf der Seite **Bereitstellungen** in Azure KI Studio).
     - Den Endpunkt für Ihren Suchdienst (der **URL**-Wert auf der Übersichtsseite Ihrer Search-Ressource im Azure-Portal).
     - Einen **Schlüssel** für Ihre Search-Ressource (verfügbar auf der Seite **Schlüssel** Ihrer Search-Ressource im Azure-Portal – Sie können einen der Administratorschlüssel verwenden).
     - Den Namen des Suchindexes (sollte `margies-index` sein).
