@@ -1,9 +1,9 @@
 ---
 lab:
-  title: Generieren von Bildern mit einem DALL-E-Modell
+  title: Erstellen Sie Bilder mit einem DALL-E-Modell
 ---
 
-# Generieren von Bildern mit einem DALL-E-Modell
+# Erstellen Sie Bilder mit einem DALL-E-Modell
 
 Der Azure OpenAI Service enthält ein Bildgenerierungsmodell mit dem Namen DALL-E. Sie können dieses Modell verwenden, um Eingabeaufforderungen in natürlicher Sprache zu übermitteln, die ein gewünschtes Bild beschreiben, und das Modell generiert ein Originalbild basierend auf der von Ihnen angegebenen Beschreibung.
 
@@ -26,8 +26,8 @@ Bevor Sie Azure OpenAI verwenden können, um Bilder zu generieren, müssen Sie e
     > \* DALL-E 3-Modelle sind nur in Azure OpenAI-Dienstressourcen in den Regionen **USA, Osten** und **Schweden, Mitte** verfügbar.
 
 1. Warten Sie, bis die Bereitstellung abgeschlossen ist. Wechseln Sie dann zur bereitgestellten Azure OpenAI-Ressource im Azure-Portal.
-1. Scrollen Sie auf der Seite **Übersicht** für Ihre Azure OpenAI-Ressource nach unten zum Abschnitt **Erste Schritte** und wählen Sie die Schaltfläche aus, um zu **KI Studio** zu gelangen.
-1. Wählen Sie in Azure AI Studio im linken Bereich die Seite "**Deployments**" aus und sehen Sie sich Ihre vorhandenen Modellbereitstellungen an. Wenn Sie noch kein DALL-E 3 haben, erstellen Sie eine neue Bereitstellung des **dall-e-3**-Modells mit den folgenden Einstellungen:
+1. Scrollen Sie auf der Seite **Übersicht** für Ihre Azure OpenAI-Ressource nach unten zum Abschnitt **Erste Schritte** und klicken Sie auf die Schaltfläche, um zum **AI Foundry-Portal** (zuvor KI-Studio) zu gelangen.
+1. Wählen Sie im Azure KI Foundry-Portal im linken Bereich die Seite „**Deployments**“ aus und sehen Sie sich Ihre vorhandenen Modellbereitstellungen an. Wenn Sie noch kein DALL-E 3 haben, erstellen Sie eine neue Bereitstellung des **dall-e-3**-Modells mit den folgenden Einstellungen:
     - **Name der Bereitstellung**: dalle3
     - **Modellversion**: *Standardversion verwenden*
     - **Bereitstellungstyp**: Standard
@@ -38,16 +38,16 @@ Bevor Sie Azure OpenAI verwenden können, um Bilder zu generieren, müssen Sie e
 
 ## Erkunden Sie die Bilderzeugung im Playground für Bilder
 
-Sie können den Playground "Images" in **Azure AI Studio** verwenden, um mit der Bilderzeugung zu experimentieren.
+Sie können den Playground "Images" im **Azure AI Foundry-Portal** verwenden, um mit der Bilderzeugung zu experimentieren.
 
 1. Im Abschnitt "**Images Playground**" sollte Ihr Einsatz von DALL-E 3 automatisch ausgewählt werden. Falls nicht, wählen Sie es aus der Dropdown-Liste "Bereitstellung" aus.
 1. Geben Sie im Feld **Eingabeaufforderung** eine Beschreibung eines Bilds ein, das Sie generieren möchten. Wählen Sie beispielsweise `An elephant on a skateboard` Wählen Sie dann **Generieren** aus, und zeigen Sie das generierte Bild an.
 
-    ![Der Playground "Images" in Azure AI Studio mit einem generierten Bild.](../media/images-playground.png)
+    ![Der Playground "Images" im Azure AI Foundry-Portal mit einem generierten Bild.](../media/images-playground.png)
 
 1. Ändern Sie die Eingabeaufforderung, um eine spezifischere Beschreibung bereitzustellen. Beispiel: `An elephant on a skateboard in the style of Picasso`. Generieren Sie dann das neue Bild, und überprüfen Sie die Ergebnisse.
 
-    ![Der Playground "Images" in Azure AI Studio mit zwei generierten Bildern.](../media/images-playground-new-style.png)
+    ![Der Playground "Images" im Azure AI Foundry-Portal mit zwei generierten Bildern.](../media/images-playground-new-style.png)
 
 ## Verwenden der REST-API zum Generieren von Bildern
 
