@@ -5,7 +5,7 @@ lab:
 
 # Erste Schritte mit Azure OpenAI Service
 
-Azure OpenAI Service bringt die von OpenAI entwickelten generativen KI-Modelle auf die Azure-Plattform und ermöglicht Ihnen die Entwicklung leistungsstarker KI-Lösungen, die von der Sicherheit, Skalierbarkeit und Integration anderer Dienste der Azure-Cloudplattform profitieren. In dieser Übung lernen Sie, wie Sie mit Azure OpenAI beginnen, indem Sie den Dienst als Azure-Ressource bereitstellen und Azure AI Studio verwenden, um generative KI-Modelle bereitzustellen und zu untersuchen.
+Azure OpenAI Service bringt die von OpenAI entwickelten generativen KI-Modelle auf die Azure-Plattform und ermöglicht Ihnen die Entwicklung leistungsstarker KI-Lösungen, die von der Sicherheit, Skalierbarkeit und Integration anderer Dienste der Azure-Cloudplattform profitieren. In dieser Übung lernen Sie, wie Sie mit Azure OpenAI beginnen, indem Sie den Dienst als Azure-Ressource bereitstellen und Azure AI Foundary verwenden, um generative KI-Modelle bereitzustellen und zu untersuchen.
 
 In dem Szenario für diese Übung führen Sie die Rolle eines Softwareentwicklers aus, der beauftragt wurde, einen KI-Agent zu implementieren, der generative KI verwenden kann, um einer Marketingorganisation zu helfen, ihre Effektivität bei der Erreichung von Kunden zu verbessern und neue Produkte zu bewerben. Die in der Übung verwendeten Techniken können auf jedes Szenario angewendet werden, in dem eine Organisation generative KI-Modelle verwenden möchte, um Mitarbeitern zu helfen, effektiver und produktiver zu arbeiten.
 
@@ -39,12 +39,12 @@ Wenn Sie noch keine Azure OpenAI-Ressource haben, stellen Sie eine in Ihrem Azur
 
 ## Bereitstellen eines Modells
 
-Azure bietet ein webbasiertes Portal namens **Azure AI Studio**, das Sie zur Bereitstellung, Verwaltung und Untersuchung von Modellen verwenden können. Sie beginnen Ihre Erkundung von Azure OpenAI, indem Sie Azure AI Studio verwenden, um ein Modell bereitzustellen.
+Azure bietet ein webbasiertes Portal mit dem Namen **Azure KI Foundry Portal**, das Sie zur Bereitstellung, Verwaltung und Untersuchung von Modellen verwenden können. Sie beginnen Ihre Erkundung von Azure OpenAI, indem Sie das Azure KI Foundry-Portal verwenden, um ein Modell bereitzustellen.
 
-> **Hinweis**: Während Sie Azure AI Studio verwenden, werden möglicherweise Meldungsfelder mit Vorschlägen für auszuführende Aufgaben angezeigt. Sie können diese schließen und die Schritte in dieser Übung ausführen.
+> **Hinweis**: Während Sie Azure KI Studio verwenden, werden möglicherweise Meldungsfelder mit Vorschlägen für auszuführende Aufgaben angezeigt. Sie können diese schließen und die Schritte in dieser Übung ausführen.
 
-1. Scrollen Sie im Azure-Portal auf der Seite **Übersicht** für Ihre Azure OpenAI-Ressource nach unten zum Abschnitt **Erste Schritte** und wählen Sie die Schaltfläche aus, um zu **AI Studio** zu gelangen.
-1. Wählen Sie in Azure AI Studio im linken Bereich die Seite "**Deployments**" aus und sehen Sie sich Ihre vorhandenen Modellbereitstellungen an. Falls noch nicht vorhanden, erstellen Sie eine neue Bereitstellung des **gpt-35-turbo-16k**-Modells mit den folgenden Einstellungen:
+1. Scrollen Sie im Azure-Portal auf der Seite **Übersicht** für Ihre Azure OpenAI-Ressource nach unten zum Abschnitt **Erste Schritte** und wählen Sie die Schaltfläche aus, um zum **KI Foundry-Portal** (zuvor KI-Studio) zu gelangen.
+1. Wählen Sie im Azure KI Foundry-Portal im linken Bereich die Seite „**Deployments**“ aus und sehen Sie sich Ihre vorhandenen Modellbereitstellungen an. Falls noch nicht vorhanden, erstellen Sie eine neue Bereitstellung des **gpt-35-turbo-16k**-Modells mit den folgenden Einstellungen:
     - **Bereitstellungsname**: *Ein eindeutiger Name Ihrer Wahl*
     - **Modell**: gpt-35-turbo-16k *(wenn das 16k-Modell nicht verfügbar ist, wählen Sie gpt-35-turbo)*
     - **Modellversion**: *Standardversion verwenden*
@@ -57,7 +57,7 @@ Azure bietet ein webbasiertes Portal namens **Azure AI Studio**, das Sie zur Ber
 
 ## Verwenden des Chat-Playgrounds
 
-Nachdem Sie ein Modell bereitgestellt haben, können Sie es verwenden, um Antworten basierend auf Aufforderungen in natürlicher Sprache zu generieren. Der Playground "*Chat*" in Azure AI Studio stellt eine Chatbot-Schnittstelle für GPT 3.5- und höhere Modelle bereit.
+Nachdem Sie ein Modell bereitgestellt haben, können Sie es verwenden, um Antworten basierend auf Aufforderungen in natürlicher Sprache zu generieren. Der Playground *Chat* in Azure AI Foundry stellt eine Chatbot-Schnittstelle für GPT 3.5- und höhere Modelle bereit.
 
 > **Hinweis:** Der *Chat*-Playground verwendet die *ChatCompletions*-API anstelle der älteren *Completions*-API, die vom *Completions*-Playground verwendet wird. Der Completions-Playground wird aus Gründen der Kompatibilität mit älteren Modellen bereitgestellt.
 
@@ -135,9 +135,9 @@ Sie haben untersucht, wie Systemnachricht, Beispiele und Eingabeaufforderungen d
 
 ## Bereitstellen Ihres Modells in einer Web-App
 
-Nachdem Sie nun einige der Funktionen eines generativen KI-Modells im Azure AI Studio Playground kennengelernt haben, können Sie eine Azure-Web-App bereitstellen, um eine grundlegende KI-Agentenschnittstelle anzubieten, über die Benutzer mit dem Modell chatten können.
+Nachdem Sie nun einige der Funktionen eines Modells für generative KI im Azure AI Foundry Playground kennengelernt haben, können Sie eine Azure-Web-App bereitstellen, um eine einfache KI-Agentenschnittstelle anzubieten, über die Benutzende mit dem Modell chatten können.
 
-> **Hinweis**: Azure KI Studio befindet sich noch in der Vorschau. Bei einigen Benutzenden kann die Bereitstellung in der Web-App aufgrund eines Fehlers in der Vorlage im Studio nicht bereitgestellt werden. Wenn dies der Fall ist, überspringen Sie diesen Abschnitt.
+> **Hinweis**: Bei einigen Benutzenden kann die Bereitstellung in der Web-App aufgrund eines Fehlers in der Vorlage im Studio nicht bereitgestellt werden. Wenn dies der Fall ist, überspringen Sie diesen Abschnitt.
 
 1. Wählen Sie oben rechts auf der **Chat**-Playground-Seite im Menü **Bereitstellen an** die Option **Eine neue Web-App** aus.
 1. Erstellen Sie im Dialogfeld **In einer Web-App bereitstellen** eine neue Web-App mit den folgenden Einstellungen:
@@ -160,8 +160,8 @@ Nachdem Sie nun einige der Funktionen eines generativen KI-Modells im Azure AI S
 
     > **Hinweis:** Sie haben das *Modell* in einer Web-App bereitgestellt, aber diese Bereitstellung enthält nicht die Systemeinstellungen und Parameter, die Sie im Playground festgelegt haben; daher spiegelt die Antwort möglicherweise nicht die Beispiele wider, die Sie im Playground angegeben haben. In einem echten Szenario fügen Sie Ihrer Anwendung Logik hinzu, um die Eingabeaufforderung so zu ändern, dass sie die entsprechenden Kontextdaten für die Art der Antwort enthält, die Sie generieren möchten. Diese Art von Anpassung liegt außerhalb des Umfangs dieser Einführungsübung, aber Sie können sich in anderen Übungen und Produktdokumentationen über Prompt Engineering-Techniken und Azure OpenAI-APIs informieren.
 
-1. Wenn Sie mit Ihrem Modell in der Web-App fertig sind, schließen Sie die Registerkarte "Web-App" in Ihrem Browser, um zu Azure AI Studio zurückzukehren.
+1. Wenn Sie mit Ihrem Modell in der Web-App fertig sind, schließen Sie die Registerkarte „Web-App“ in Ihrem Browser, um zum Azure AI Foundry-Portal zurückzukehren.
 
-## Bereinigung
+## Bereinigen
 
 Wenn Sie mit Ihrer Azure OpenAI-Ressource fertig sind, denken Sie daran, die Bereitstellung oder die gesamte Ressource im **Azure-Portal** auf `https://portal.azure.com` zu löschen.

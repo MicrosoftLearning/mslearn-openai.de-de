@@ -73,10 +73,10 @@ In dieser Übung werden Sie zwei KI-Modelle verwenden:
 - Ein Text-Einbettungsmodell zur *Vektorisierung* des Textes in den Broschüren, damit dieser effizient für die Verwendung in Eingabeaufforderungen indiziert werden kann.
 - Ein GPT-Modell, das Ihre Anwendung verwenden kann, um Antworten auf Eingabeaufforderungen zu generieren, die auf Ihren Daten basieren.
 
-Um diese Modelle zu implementieren, verwenden Sie AI Studio.
+Um diese Modelle zu bereitzustellen, verwenden Sie AI Foundry.
 
-1. Navigieren Sie im Azure-Portal zu Ihrer Azure OpenAI-Ressource. Verwenden Sie dann den Link, um Ihre Ressource in **Azure AI Studio** zu öffnen.
-1. Zeigen Sie in Azure AI Studio auf der Seite "**Deployments"** Ihre vorhandenen Modellbereitstellungen an. Erstellen Sie dann eine neue Basismodellbereitstellung des Modells **text-embedding-ada-002** mit den folgenden Einstellungen:
+1. Navigieren Sie im Azure-Portal zu Ihrer Azure OpenAI-Ressource. Verwenden Sie dann den Link, um Ihre Ressource im **Azure AI Foundry-Portal** zu öffnen.
+1. Zeigen Sie im Azure AI Foundry-Portal auf der Seite **Deployments** Ihre vorhandenen Modellbereitstellungen an. Erstellen Sie dann eine neue Basismodellbereitstellung des Modells **text-embedding-ada-002** mit den folgenden Einstellungen:
     - **Name der Bereitstellung**: text-embedding-ada-002
     - **Modell**: text-embedding-ada-002
     - **Modellversion**: *Die Standardversion*
@@ -97,7 +97,7 @@ Um diese Modelle zu implementieren, verwenden Sie AI Studio.
 
 ## Erstellen eines Index
 
-Um die Verwendung Ihrer eigenen Daten in einer Eingabeaufforderung einfach zu machen, indizieren Sie sie mit Azure AI Search. Sie verwenden das zuvor während des Indexierungsprozesses eingesetzte Text-Einbettungsmodell, um die Textdaten zu *vektorisieren* (was dazu führt, dass jedes Text-Token im Index durch numerische Vektoren dargestellt wird – was es mit der Art und Weise kompatibel macht, wie ein generatives KI-Modell Text darstellt).
+Um die Verwendung Ihrer eigenen Daten in einer Eingabeaufforderung einfach zu machen, indizieren Sie sie mit Azure AI Search. Sie verwenden das zuvor während des Indexierungsprozesses bereitgestellte Text-Einbettungsmodell, um die Textdaten zu *vektorisieren* (was dazu führt, dass jedes Text-Token im Index durch numerische Vektoren dargestellt wird. Dies macht es mit der Art und Weise kompatibel, wie ein Modell für generative KI Text darstellt).
 
 1. Navigieren Sie im Azure-Portal zu Ihrer Azure AI Search-Ressource.
 1. Wählen Sie auf der Seite **Übersicht** die Option **Importieren und Vektorisieren von Daten** aus.
@@ -151,7 +151,7 @@ Anwendungen für C# und Python wurden bereitgestellt, und beide Apps verfügen �
     **Python**:
 
     ```
-    pip install openai==1.13.3
+    pip install openai==1.55.3
     ```
 
 3. Öffnen Sie im Bereich **Explorer** im Ordner **CSharp** oder **Python** die Konfigurationsdatei für Ihre bevorzugte Sprache.
@@ -161,7 +161,7 @@ Anwendungen für C# und Python wurden bereitgestellt, und beide Apps verfügen �
     
 4. Aktualisieren Sie die Konfigurationswerte, um Folgendes einzuschließen:
     - Den **Endpunkt** und einen **Schlüssel** aus der von Ihnen erstellten Azure OpenAI-Ressource (verfügbar auf der Seite **Schlüssel und Endpunkt** für Ihre Azure OpenAI-Ressource im Azure-Portal).
-    - Der **Bereitstellungsname**, den Sie für die Bereitstellung des Modells „gpt-35-turbo“ angegeben haben (verfügbar auf der Seite **Bereitstellungen** in Azure KI Studio).
+    - Der **Bereitstellungsname**, den Sie für Ihre gpt-35-turbo-Modellbereitstellung angegeben haben (verfügbar auf der Seite **Bereitstellungen** im Azure KI Foundry-Portal).
     - Den Endpunkt für Ihren Suchdienst (der **URL**-Wert auf der Übersichtsseite Ihrer Search-Ressource im Azure-Portal).
     - Einen **Schlüssel** für Ihre Search-Ressource (verfügbar auf der Seite **Schlüssel** Ihrer Search-Ressource im Azure-Portal – Sie können einen der Administratorschlüssel verwenden).
     - Den Namen des Suchindexes (sollte `margies-index` sein).
