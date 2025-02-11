@@ -59,12 +59,12 @@ Azure bietet ein webbasiertes Portal mit dem Namen **Azure KI Foundry Portal**, 
 
 Beginnen wir mit der Erkundung einiger Prompt Engineering-Technik im Chat-Playground.
 
-1. Wählen Sie im Abschnitt **Playground** die Seite **Chat** aus. Die Seite "**Chat** Playground" besteht aus einer Reihe von Schaltflächen und zwei Hauptbereichen (die je nach Bildschirmauflösung horizontal von rechts nach links oder vertikal von oben nach unten angeordnet werden können):
-    - **Konfiguration** – wird verwendet, um Ihre Bereitstellung auszuwählen, Systemmeldungen zu definieren und Parameter für die Interaktion mit Ihrer Bereitstellung festzulegen.
-    - **Chatsitzung**: wird zum Senden von Chat-Nachrichten und Ansehen von Antworten verwendet
-2. Stellen Sie unter **Einsätze** sicher, dass Ihr gpt-35-turbo-16k-Modelleinsatz ausgewählt ist.
-1. Überprüfen Sie die Standard-**Systemmeldung**, die lauten sollte: *Sie sind ein KI-Assistent, der Menschen dabei hilft, Informationen zu finden.*
-4. Senden Sie in der **Chatsitzung** die folgende Abfrage:
+1. Wählen Sie im linken Seitenbereich im Abschnitt **Playgrounds** die Seite **Chat** aus. Die Seite "**Chat** Playground" besteht aus einer Reihe von Schaltflächen und zwei Hauptbereichen (die je nach Bildschirmauflösung horizontal von rechts nach links oder vertikal von oben nach unten angeordnet werden können):
+    - **Setup**: wird verwendet, um Ihre Bereitstellung auszuwählen, Systemmeldungen zu definieren und Parameter für die Interaktion mit Ihrer Bereitstellung festzulegen.
+    - **Chatverlauf**: wird zum Senden von Chat-Nachrichten und Ansehen von Antworten verwendet
+2. Stellen Sie unter **Bereitstellung** sicher, dass Ihre gpt-35-turbo-16k-Modellimplementierung ausgewählt ist.
+1. Überprüfen Sie die Standard-Systemnachricht, die in dem Textfeld direkt unter der ausgewählten Bereitstellung enthalten ist. Sie sollte wie folgt lauten: *Du bist ein KI-Assistent, der Menschen dabei hilft, Informationen zu finden.*
+4. Senden Sie im **Chatverlauf** die folgende Anfrage:
 
     ```prompt
     What kind of article is this?
@@ -80,7 +80,7 @@ Beginnen wir mit der Erkundung einiger Prompt Engineering-Technik im Chat-Playgr
 
     Die Antwort enthält eine Beschreibung des Artikels. Nehmen wir an, Sie möchten ein spezielleres Format für die Artikelkategorisierung.
 
-5. Ändern Sie im Abschnitt "**Konfiguration"** die Systemmeldung in `You are a news aggregator that categorizes news articles.`
+5. Ändern Sie im Abschnitt **Setup** die Systemmeldung in `You are a news aggregator that categorizes news articles.`.
 
 6. Wählen Sie in der neuen Systemnachricht die Schaltfläche "**Abschnitt hinzufügen**" und dann "**Beispiele**" aus. Fügen Sie anschließend das folgende Beispiel hinzu.
 
@@ -127,9 +127,9 @@ Beginnen wir mit der Erkundung einiger Prompt Engineering-Technik im Chat-Playgr
     Entertainment
     ```
 
-8. Verwenden Sie die Schaltfläche "**Änderungen übernehmen**" oben im Abschnitt "**Konfiguration**", um Ihre Änderungen zu speichern.
+8. Verwenden Sie die Schaltfläche **Änderungen übernehmen** unter dem Textfeld der Systemmeldung im Abschnitt **Setup**, um Ihre Änderungen zu speichern.
 
-9. Geben Sie im Abschnitt **Chatsitzung** erneut die folgende Eingabeaufforderung ein:
+9. Geben Sie im Abschnitt **Chatverlauf** erneut den folgenden Prompt ein:
 
     ```prompt
     What kind of article is this?
@@ -147,7 +147,7 @@ Beginnen wir mit der Erkundung einiger Prompt Engineering-Technik im Chat-Playgr
 
 10. Ändern Sie die Systemmeldung zurück zur Standardvorlage, die `You are an AI assistant that helps people find information.` ohne Beispiele sein sollte. Übernehmen Sie dann die Änderungen.
 
-11. Geben Sie im Abschnitt **Chatsitzung** die folgende Eingabeaufforderung ein:
+11. Geben Sie im Abschnitt **Chatverlauf** den folgenden Prompt ein:
 
     ```prompt
     # 1. Create a list of animals
@@ -359,7 +359,7 @@ Nachdem Ihre App konfiguriert wurde, führen Sie sie aus, um Ihre Anforderung an
     - Rescue name is Contoso 
     - It specializes in elephants, as well as zebras and giraffes 
     - Call for donations to be given at our website 
-    \n Include a list of the current animals we have at our rescue after the signature, in the form of a table. These animals include elephants, zebras, gorillas, lizards, and jackrabbits.
+    Include a list of the current animals we have at our rescue after the signature, in the form of a table. These animals include elephants, zebras, gorillas, lizards, and jackrabbits.
     ```
 
 1. Beobachten Sie die Ausgabe, und sehen Sie, wie sich die E-Mail basierend auf Ihren klaren Anweisungen geändert hat.
@@ -378,7 +378,7 @@ Nachdem Ihre App konfiguriert wurde, führen Sie sie aus, um Ihre Anforderung an
     - Rescue name is Contoso 
     - It specializes in elephants, as well as zebras and giraffes 
     - Call for donations to be given at our website 
-    \n Include a list of the current animals we have at our rescue after the signature, in the form of a table. These animals include elephants, zebras, gorillas, lizards, and jackrabbits.
+    Include a list of the current animals we have at our rescue after the signature, in the form of a table. These animals include elephants, zebras, gorillas, lizards, and jackrabbits.
     ```
 
 1. Beobachten Sie die Ausgabe. Diesmal werden Sie die E-Mail wahrscheinlich in einem ähnlichen Format sehen, aber in einem viel informelleren Ton. Wahrscheinlich werden sogar Witze enthalten sein!
