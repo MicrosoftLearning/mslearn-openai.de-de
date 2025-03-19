@@ -43,8 +43,6 @@ Sie können den Playground "Images" im **Azure AI Foundry-Portal** verwenden, um
 1. Im Abschnitt "**Images Playground**" sollte Ihr Einsatz von DALL-E 3 automatisch ausgewählt werden. Falls nicht, wählen Sie es aus der Dropdown-Liste "Bereitstellung" aus.
 1. Geben Sie im Feld **Eingabeaufforderung** eine Beschreibung eines Bilds ein, das Sie generieren möchten. Wählen Sie beispielsweise `An elephant on a skateboard` Wählen Sie dann **Generieren** aus, und zeigen Sie das generierte Bild an.
 
-    ![Der Playground "Images" im Azure AI Foundry-Portal mit einem generierten Bild.](../media/images-playground.png)
-
 1. Ändern Sie die Eingabeaufforderung, um eine spezifischere Beschreibung bereitzustellen. Beispiel: `An elephant on a skateboard in the style of Picasso`. Generieren Sie dann das neue Bild, und überprüfen Sie die Ergebnisse.
 
     ![Der Playground "Images" im Azure AI Foundry-Portal mit zwei generierten Bildern.](../media/images-playground-new-style.png)
