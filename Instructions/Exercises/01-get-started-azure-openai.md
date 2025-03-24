@@ -1,6 +1,7 @@
 ---
 lab:
   title: Erste Schritte mit Azure OpenAI Service
+  status: stale
 ---
 
 # Erste Schritte mit Azure OpenAI Service

@@ -1,6 +1,7 @@
 ---
 lab:
   title: Verwenden von Prompt Engineering in Ihrer App
+  status: stale
 ---
 
 # Verwenden von Prompt Engineering in Ihrer App
