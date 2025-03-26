@@ -1,6 +1,7 @@
 ---
 lab:
   title: Erstellen Sie Bilder mit einem DALL-E-Modell
+  status: stale
 ---
 
 # Erstellen Sie Bilder mit einem DALL-E-Modell
