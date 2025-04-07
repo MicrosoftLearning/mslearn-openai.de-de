@@ -45,9 +45,9 @@ Azure bietet ein webbasiertes Portal mit dem Namen **Azure KI Foundry Portal**, 
 > **Hinweis**: Während Sie Azure KI Studio verwenden, werden möglicherweise Meldungsfelder mit Vorschlägen für auszuführende Aufgaben angezeigt. Sie können diese schließen und die Schritte in dieser Übung ausführen.
 
 1. Scrollen Sie im Azure-Portal auf der Seite **Übersicht** für Ihre Azure OpenAI-Ressource nach unten zum Abschnitt **Erste Schritte** und wählen Sie die Schaltfläche aus, um zum **KI Foundry-Portal** (zuvor KI-Studio) zu gelangen.
-1. Wählen Sie im Azure KI Foundry-Portal im linken Bereich die Seite „**Deployments**“ aus und sehen Sie sich Ihre vorhandenen Modellbereitstellungen an. Falls noch nicht vorhanden, erstellen Sie eine neue Bereitstellung des **gpt-35-turbo-16k**-Modells mit den folgenden Einstellungen:
+1. Wählen Sie im Azure KI Foundry-Portal im linken Bereich die Seite „**Deployments**“ aus und sehen Sie sich Ihre vorhandenen Modellbereitstellungen an. Falls noch nicht vorhanden, erstellen Sie eine neue Bereitstellung des **gpt-4o**-Modells mit den folgenden Einstellungen:
     - **Bereitstellungsname**: *Ein eindeutiger Name Ihrer Wahl*
-    - **Modell**: gpt-35-turbo-16k *(wenn das 16k-Modell nicht verfügbar ist, wählen Sie gpt-35-turbo)*
+    - **Modell**: gpt-4o
     - **Modellversion**: *Standardversion verwenden*
     - **Bereitstellungstyp**: Standard
     - **Ratenlimit für Token pro Minute**: 5K\*
@@ -58,14 +58,14 @@ Azure bietet ein webbasiertes Portal mit dem Namen **Azure KI Foundry Portal**, 
 
 ## Verwenden des Chat-Playgrounds
 
-Nachdem Sie ein Modell bereitgestellt haben, können Sie es verwenden, um Antworten basierend auf Aufforderungen in natürlicher Sprache zu generieren. Der Playground *Chat* in Azure AI Foundry stellt eine Chatbot-Schnittstelle für GPT 3.5- und höhere Modelle bereit.
+Nachdem Sie ein Modell bereitgestellt haben, können Sie es verwenden, um Antworten basierend auf Aufforderungen in natürlicher Sprache zu generieren. Der Playground *Chat* in Azure AI Foundry stellt eine Chatbot-Schnittstelle für GPT 4- und höhere Modelle bereit.
 
 > **Hinweis:** Der *Chat*-Playground verwendet die *ChatCompletions*-API anstelle der älteren *Completions*-API, die vom *Completions*-Playground verwendet wird. Der Completions-Playground wird aus Gründen der Kompatibilität mit älteren Modellen bereitgestellt.
 
 1. Wählen Sie im Abschnitt **Playground** die Seite **Chat** aus. Die Seite "**Chat** Playground" besteht aus einer Reihe von Schaltflächen und zwei Hauptbereichen (die je nach Bildschirmauflösung horizontal von rechts nach links oder vertikal von oben nach unten angeordnet werden können):
     - **Konfiguration** – wird verwendet, um Ihre Bereitstellung auszuwählen, Systemmeldungen zu definieren und Parameter für die Interaktion mit Ihrer Bereitstellung festzulegen.
     - **Chatsitzung**: wird zum Senden von Chat-Nachrichten und Ansehen von Antworten verwendet
-1. Stellen Sie unter **Einsätze** sicher, dass Ihr gpt-35-turbo-16k-Modelleinsatz ausgewählt ist.
+1. Stellen Sie unter **Bereitstellungen** sicher, dass Ihre 4o-Modellbereitstellung ausgewählt ist.
 1. Überprüfen Sie die Standard-**Systemmeldung**, die lauten sollte: *Sie sind ein KI-Assistent, der Menschen dabei hilft, Informationen zu finden.* Die Systemmeldung ist in den an das Modell übermittelten Eingabeaufforderungen enthalten und stellt Kontext für die Antworten des Modells bereit. Sie legt die Erwartungen fest, wie ein KI-Agent basierend auf dem Modell mit dem Benutzer interagieren soll.
 1. Geben Sie im Bereich **Chatsitzung** die Benutzerabfrage `How can I use generative AI to help me market a new product?` ein.
 
@@ -96,13 +96,13 @@ Bisher haben Sie eine Chatunterhaltung mit Ihrem Modell basierend auf der Standa
 1. Erweitern Sie unter dem Textfeld **Systemnachricht** die Dropdown-Liste für **Abschnitt hinzufügen** und wählen Sie **Beispiele** aus. Geben Sie dann die folgende Nachricht und Antwort in die angegebenen Felder ein:
 
     **Benutzer**:
-    
+
     ```prompt
     Write an advertisement for the lightweight "Ultramop" mop, which uses patented absorbent materials to clean floors.
     ```
-    
+
     **Assistent:**
-    
+
     ```prompt
     Welcome to the future of cleaning!
     
@@ -147,7 +147,7 @@ Nachdem Sie nun einige der Funktionen eines Modells für generative KI im Azure 
     - **Ressourcengruppe:** *Die Ressourcengruppe, in der Sie Ihre Azure OpenAI-Ressource bereitgestellt haben*
     - **Standorte**: *Die Region, in der Sie Ihre Azure OpenAI-Ressource bereitgestellt haben*
     - **Tarif**: Free (F1): *(Wenn diese Option nicht verfügbar ist, wählen Sie Basic (B1) aus.)*
-    - **Chatverlauf in der Web-App aktivieren**: <u>Nicht</u> ausgewählt
+    - **Chatverlauf in der Web-App aktivieren**: **Nicht** ausgewählt
     - **Ich erkenne an, dass Web-Apps mein Konto belasten werden**: Ausgewählt
 1. Bereitstellen der neuen Web-App und Warten auf den Abschluss der Bereitstellung (dies kann 10 Minuten dauern)
 1. Nachdem Ihre Web-App erfolgreich bereitgestellt wurde, verwenden Sie die Schaltfläche oben rechts auf der **Chat**-Playground-Seite, um die Web-App zu starten. Das Starten der App kann einige Minuten dauern. Wenn Sie dazu aufgefordert werden, akzeptieren Sie die Berechtigungsanforderung.

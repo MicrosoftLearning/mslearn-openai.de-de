@@ -45,9 +45,9 @@ Azure bietet ein webbasiertes Portal mit dem Namen **Azure KI Foundry Portal**, 
 > **Hinweis**: Während Sie Azure KI Studio verwenden, werden möglicherweise Meldungsfelder mit Vorschlägen für auszuführende Aufgaben angezeigt. Sie können diese schließen und die Schritte in dieser Übung ausführen.
 
 1. Scrollen Sie im Azure-Portal auf der Seite **Übersicht** für Ihre Azure OpenAI-Ressource nach unten zum Abschnitt **Erste Schritte** und wählen Sie die Schaltfläche aus, um zum **KI Foundry-Portal** (zuvor KI-Studio) zu gelangen.
-1. Wählen Sie im Azure KI Foundry-Portal im linken Bereich die Seite „**Deployments**“ aus und sehen Sie sich Ihre vorhandenen Modellbereitstellungen an. Falls noch nicht vorhanden, erstellen Sie eine neue Bereitstellung des **gpt-35-turbo-16k**-Modells mit den folgenden Einstellungen:
+1. Wählen Sie im Azure KI Foundry-Portal im linken Bereich die Seite „**Deployments**“ aus und sehen Sie sich Ihre vorhandenen Modellbereitstellungen an. Falls noch nicht vorhanden, erstellen Sie eine neue Bereitstellung des **gpt-4o**-Modells mit den folgenden Einstellungen:
     - **Bereitstellungsname**: *Ein eindeutiger Name Ihrer Wahl*
-    - **Modell**: gpt-35-turbo-16k *(wenn das 16k-Modell nicht verfügbar ist, wählen Sie gpt-35-turbo)*
+    - **Modell**: gpt-4o
     - **Modellversion**: *Standardversion verwenden*
     - **Bereitstellungstyp**: Standard
     - **Ratenlimit für Token pro Minute**: 5K\*
@@ -63,7 +63,7 @@ Entwickeln Sie Ihre Azure-OpenAI-App mit Visual Studio Code. Die Codedateien fü
 > **Tipp**: Wenn Sie das **mslearn-openai**-Repository bereits geklont haben, öffnen Sie es in Visual Studio Code. Führen Sie andernfalls die folgenden Schritte aus, um es in Ihrer Entwicklungsumgebung zu klonen.
 
 1. Starten Sie Visual Studio Code.
-2. Öffnen Sie die Palette (UMSCHALT+STRG+P), und führen Sie einen **Git: Clone**-Befehl aus, um das Repository `https://github.com/MicrosoftLearning/mslearn-openai` in einen lokalen Ordner zu klonen (der Ordner ist beliebig).
+2. Öffnen Sie die Befehlspalette (UMSCHALT+STRG+P oder **Ansicht** > **Befehlspalette …**) und führen Sie den Befehl **Git: Clone** aus, um das `https://github.com/MicrosoftLearning/mslearn-openai`-Repository in einen lokalen Ordner zu klonen (es spielt keine Rolle, in welchen Ordner).
 3. Nachdem das Repository geklont wurde, öffnen Sie den Ordner in Visual Studio Code.
 
     > **Hinweis:** Wenn Visual Studio Code eine Popupnachricht anzeigt, in der Sie aufgefordert werden, dem geöffneten Code zu vertrauen, klicken Sie auf die Option **Ja, ich vertraue den Autoren** im Popupfenster.
@@ -81,21 +81,21 @@ Anwendungen für C# und Python wurden bereitgestellt. Beide Apps verfügen über
 
     **C#:**
 
-    ```
-    dotnet add package Azure.AI.OpenAI --version 1.0.0-beta.14
+    ```powershell
+    dotnet add package Azure.AI.OpenAI --version 2.1.0
     ```
 
     **Python**:
 
-    ```
-    pip install openai==1.55.3
+    ```powershell
+    pip install openai==1.65.2
     ```
 
 3. Öffnen Sie im Bereich **Explorer** im Ordner **CSharp** oder **Python** die Konfigurationsdatei für Ihre bevorzugte Sprache.
 
     - **C#**: appsettings.json
     - **Python**: .env
-    
+
 4. Aktualisieren Sie die Konfigurationswerte, um Folgendes einzuschließen:
     - Den **Endpunkt** und einen **Schlüssel** aus der von Ihnen erstellten Azure OpenAI-Ressource (verfügbar auf der Seite **Schlüssel und Endpunkt** für Ihre Azure OpenAI-Ressource im Azure-Portal).
     - Der **Bereitstellungsname**, den Sie für Ihre Modellbereitstellung angegeben haben (verfügbar auf der Seite „**Bereitstellungen“** im Azure KI Foundry-Portal).
@@ -110,12 +110,13 @@ Jetzt können Sie das Azure OpenAI-SDK verwenden, um Ihr bereitgestelltes Modell
     **C#** : Program.cs
 
     ```csharp
-    // Add Azure OpenAI package
+    // Add Azure OpenAI packages
     using Azure.AI.OpenAI;
+    using OpenAI.Chat;
     ```
-    
+
     **Python**: test-openai-model.py
-    
+
     ```python
     # Add Azure OpenAI package
     from openai import AzureOpenAI
@@ -127,7 +128,8 @@ Jetzt können Sie das Azure OpenAI-SDK verwenden, um Ihr bereitgestelltes Modell
 
     ```csharp
     // Initialize the Azure OpenAI client
-    OpenAIClient client = new OpenAIClient(new Uri(oaiEndpoint), new AzureKeyCredential(oaiKey));
+    AzureOpenAIClient azureClient = new (new Uri(oaiEndpoint), new ApiKeyCredential(oaiKey));
+    ChatClient chatClient = azureClient.GetChatClient(oaiDeploymentName);
     
     // System message to provide context to the model
     string systemMessage = "I am a hiking enthusiast named Forest who helps people discover hikes in their area. If no area is specified, I will default to near Rainier National Park. I will then provide three suggestions for nearby hikes that vary in length. I will also share an interesting fact about the local nature on the hikes when making a recommendation.";
@@ -151,31 +153,28 @@ Jetzt können Sie das Azure OpenAI-SDK verwenden, um Ihr bereitgestelltes Modell
         """
     ```
 
-1. Ersetzen Sie den Kommentar ***Hinzufügen von Code zum Senden der Anforderung*** durch den erforderlichen Code zum Erstellen der Anforderung; geben Sie dabei die verschiedenen Parameter für Ihr Modell an, z. B. `messages` und `temperature`.
+1. Ersetzen Sie den Kommentar ***Hinzufügen von Code zum Senden der Anforderung*** durch den erforderlichen Code zum Erstellen der Anforderung; geben Sie dabei die verschiedenen Parameter für Ihr Modell an, z. B. `Temperature` und `MaxOutputTokenCount`.
 
     **C#** : Program.cs
 
     ```csharp
     // Add code to send request...
-    // Build completion options object
-    ChatCompletionsOptions chatCompletionsOptions = new ChatCompletionsOptions()
+    // Get response from Azure OpenAI
+    ChatCompletionOptions chatCompletionOptions = new ChatCompletionOptions()
     {
-        Messages =
-        {
-            new ChatRequestSystemMessage(systemMessage),
-            new ChatRequestUserMessage(inputText),
-        },
-        MaxTokens = 400,
         Temperature = 0.7f,
-        DeploymentName = oaiDeploymentName
+        MaxOutputTokenCount = 800
     };
 
-    // Send request to Azure OpenAI model
-    ChatCompletions response = client.GetChatCompletions(chatCompletionsOptions);
+    ChatCompletion completion = chatClient.CompleteChat(
+        [
+            new SystemChatMessage(systemMessage),
+            new UserChatMessage(inputText)
+        ],
+        chatCompletionOptions
+    );
 
-    // Print the response
-    string completion = response.Choices[0].Message.Content;
-    Console.WriteLine("Response: " + completion + "\n");
+    Console.WriteLine($"{completion.Role}: {completion.Content[0].Text}");
     ```
 
     **Python**: test-openai-model.py
@@ -232,9 +231,9 @@ In den meisten realen Anwendungen ermöglicht das Verweisen auf frühere Teile d
 
     ```csharp
     // Initialize messages list
-    var messagesList = new List<ChatRequestMessage>()
+    var messagesList = new List<ChatMessage>()
     {
-        new ChatRequestSystemMessage(systemMessage),
+        new SystemChatMessage(systemMessage),
     };
     ```
 
@@ -252,31 +251,26 @@ In den meisten realen Anwendungen ermöglicht das Verweisen auf frühere Teile d
     ```csharp
     // Add code to send request...
     // Build completion options object
-    messagesList.Add(new ChatRequestUserMessage(inputText));
+    messagesList.Add(new UserChatMessage(inputText));
 
-    ChatCompletionsOptions chatCompletionsOptions = new ChatCompletionsOptions()
+    ChatCompletionOptions chatCompletionOptions = new ChatCompletionOptions()
     {
-        MaxTokens = 1200,
         Temperature = 0.7f,
-        DeploymentName = oaiDeploymentName
+        MaxOutputTokenCount = 800
     };
 
-    // Add messages to the completion options
-    foreach (ChatRequestMessage chatMessage in messagesList)
-    {
-        chatCompletionsOptions.Messages.Add(chatMessage);
-    }
-
-    // Send request to Azure OpenAI model
-    ChatCompletions response = client.GetChatCompletions(chatCompletionsOptions);
+    ChatCompletion completion = chatClient.CompleteChat(
+        messagesList,
+        chatCompletionOptions
+    );
 
     // Return the response
-    string completion = response.Choices[0].Message.Content;
+    string response = completion.Content[0].Text;
 
     // Add generated text to messages list
-    messagesList.Add(new ChatRequestAssistantMessage(completion));
+    messagesList.Add(new AssistantChatMessage(response));
 
-    Console.WriteLine("Response: " + completion + "\n");
+    Console.WriteLine("Response: " + response + "\n");
     ```
 
     **Python**: test-openai-model.py
@@ -310,7 +304,7 @@ In den meisten realen Anwendungen ermöglicht das Verweisen auf frühere Teile d
 1. Beobachten Sie die Ausgabe, und verwenden Sie dann die Eingabeaufforderung `How difficult is the second hike you suggested?`.
 1. Wahrscheinlich erhalten Sie eine Antwort mit der zweiten Wanderung, die das Modell vorgeschlagen hat, was eine viel realistischere Unterhaltung bietet. Sie können zusätzliche Nachfragen stellen, die auf frühere Antworten verweisen, und jedes Mal stellt der Verlauf Kontext für das Modell zur Beantwortung bereit.
 
-    > **Tipp**: Die Tokenanzahl ist auf lediglich 1200 festgelegt. Wenn die Unterhaltung also zu lange fortgesetzt wird, ist die Anwendung nicht mehr verfügbar, was zu einer unvollständigen Eingabeaufforderung führt. In der Produktion wird die Länge des Verlaufs auf die letzten Eingaben und Antworten beschränkt, um die Anzahl der erforderlichen Token zu steuern.
+    > **Tipp**: Die Anzahl der Ausgabetoken ist auf 800 festgelegt. Wenn die Konversation also zu lange dauert, gehen der Anwendung die verfügbaren Token aus, was zu einem unvollständigen Prompt führt. In der Produktion wird die Länge des Verlaufs auf die letzten Eingaben und Antworten beschränkt, um die Anzahl der erforderlichen Token zu steuern.
 
 ## Bereinigung
 
