@@ -45,9 +45,9 @@ Azure bietet ein webbasiertes Portal mit dem Namen **Azure KI Foundry Portal**, 
 > **Hinweis**: Während Sie Azure KI Studio verwenden, werden möglicherweise Meldungsfelder mit Vorschlägen für auszuführende Aufgaben angezeigt. Sie können diese schließen und die Schritte in dieser Übung ausführen.
 
 1. Scrollen Sie im Azure-Portal auf der Seite **Übersicht** für Ihre Azure OpenAI-Ressource nach unten zum Abschnitt **Erste Schritte** und wählen Sie die Schaltfläche aus, um zum **KI Foundry-Portal** (zuvor KI-Studio) zu gelangen.
-1. Wählen Sie im Azure KI Foundry-Portal im linken Bereich die Seite „**Deployments**“ aus und sehen Sie sich Ihre vorhandenen Modellbereitstellungen an. Falls noch nicht vorhanden, erstellen Sie eine neue Bereitstellung des **gpt-35-turbo-16k**-Modells mit den folgenden Einstellungen:
+1. Wählen Sie im Azure KI Foundry-Portal im linken Bereich die Seite „**Deployments**“ aus und sehen Sie sich Ihre vorhandenen Modellbereitstellungen an. Falls noch nicht vorhanden, erstellen Sie eine neue Bereitstellung des **gpt-4o**-Modells mit den folgenden Einstellungen:
     - **Bereitstellungsname**: *Ein eindeutiger Name Ihrer Wahl*
-    - **Modell**: gpt-35-turbo-16k *(wenn das 16k-Modell nicht verfügbar ist, wählen Sie gpt-35-turbo)*
+    - **Modell**: gpt-4o
     - **Modellversion**: *Standardversion verwenden*
     - **Bereitstellungstyp**: Standard
     - **Ratenlimit für Token pro Minute**: 5K\*
@@ -67,7 +67,7 @@ Azure bietet ein webbasiertes Portal mit dem Namen **Azure KI Foundry Portal**, 
 1. Legen Sie im Bereich "**System message**" die Systemmeldung auf `You are a programming assistant helping write code` fest und übernehmen Sie die Änderungen.
 1. Senden Sie in der **Chatsitzung** die folgende Abfrage:
 
-    ```
+    ```prompt
     Write a function in python that takes a character and a string as input, and returns how many times the character appears in the string
     ```
 
@@ -79,7 +79,7 @@ Azure bietet ein webbasiertes Portal mit dem Namen **Azure KI Foundry Portal**, 
 
 1. Als Nächstes erkunden wir den Einsatz von KI, um Code zu verstehen. Senden Sie die folgende Eingabeaufforderung als Benutzernachricht.
 
-    ```
+    ```prompt
     What does the following function do?  
     ---  
     def multiply(a, b):  
@@ -105,11 +105,11 @@ Azure bietet ein webbasiertes Portal mit dem Namen **Azure KI Foundry Portal**, 
 
     Das Modell sollte beschreiben, was die Funktion bewirkt, und zwar zwei Zahlen mithilfe einer Schleife zu multiplizieren.
 
-7. Senden Sie die Eingabeaufforderung `Can you simplify the function?`.
+1. Senden Sie die Eingabeaufforderung `Can you simplify the function?`.
 
     Das Modell sollte eine einfachere Version der Funktion schreiben.
 
-8. Senden Sie die Eingabeaufforderung: `Add some comments to the function.`
+1. Senden Sie die Eingabeaufforderung: `Add some comments to the function.`
 
     Das Modell fügt dem Code Kommentare hinzu.
 
@@ -120,7 +120,7 @@ Sehen wir uns nun an, wie Sie eine benutzerdefinierte App erstellen können, die
 > **Tipp**: Wenn Sie das **mslearn-openai**-Repository bereits geklont haben, öffnen Sie es in Visual Studio Code. Führen Sie andernfalls die folgenden Schritte aus, um es in Ihrer Entwicklungsumgebung zu klonen.
 
 1. Starten Sie Visual Studio Code.
-2. Öffnen Sie die Palette (UMSCHALT+STRG+P), und führen Sie einen **Git: Clone**-Befehl aus, um das Repository `https://github.com/MicrosoftLearning/mslearn-openai` in einen lokalen Ordner zu klonen (der Ordner ist beliebig).
+2. Öffnen Sie die Befehlspalette (UMSCHALT+STRG+P oder **Ansicht** > **Befehlspalette …**) und führen Sie den Befehl **Git: Clone** aus, um das `https://github.com/MicrosoftLearning/mslearn-openai`-Repository in einen lokalen Ordner zu klonen (es spielt keine Rolle, in welchen Ordner).
 3. Nachdem das Repository geklont wurde, öffnen Sie den Ordner in Visual Studio Code.
 
     > **Hinweis:** Wenn Visual Studio Code eine Popupnachricht anzeigt, in der Sie aufgefordert werden, dem geöffneten Code zu vertrauen, klicken Sie auf die Option **Ja, ich vertraue den Autoren** im Popupfenster.
@@ -138,21 +138,21 @@ Es werden Anwendungen für C# und Python bereitgestellt sowie eine Beispieltextd
 
     **C#:**
 
-    ```
-    dotnet add package Azure.AI.OpenAI --version 1.0.0-beta.14
+    ```powershell
+    dotnet add package Azure.AI.OpenAI --version 2.1.0
     ```
 
     **Python**:
 
-    ```
-    pip install openai==1.55.3
+    ```powershell
+    pip install openai==1.65.2
     ```
 
 3. Öffnen Sie im Bereich **Explorer** im Ordner **CSharp** oder **Python** die Konfigurationsdatei für Ihre bevorzugte Sprache.
 
     - **C#**: appsettings.json
     - **Python**: .env
-    
+
 4. Aktualisieren Sie die Konfigurationswerte, um Folgendes einzuschließen:
     - Den **Endpunkt** und einen **Schlüssel** aus der von Ihnen erstellten Azure OpenAI-Ressource (verfügbar auf der Seite **Schlüssel und Endpunkt** für Ihre Azure OpenAI-Ressource im Azure-Portal).
     - Der **Bereitstellungsname**, den Sie für Ihre Modellbereitstellung angegeben haben (verfügbar auf der Seite „**Bereitstellungen“** im Azure KI Foundry-Portal).
@@ -168,23 +168,19 @@ Jetzt können Sie das Azure OpenAI-SDK verwenden, um Ihr bereitgestelltes Modell
 
     ```csharp
     // Format and send the request to the model
-    var chatCompletionsOptions = new ChatCompletionsOptions()
+    var chatCompletionsOptions = new ChatCompletionOptions()
     {
-        Messages =
-        {
-            new ChatRequestSystemMessage(systemPrompt),
-            new ChatRequestUserMessage(userPrompt)
-        },
         Temperature = 0.7f,
-        MaxTokens = 1000,
-        DeploymentName = oaiDeploymentName
+        MaxOutputTokenCount = 800
     };
-
+    
     // Get response from Azure OpenAI
-    Response<ChatCompletions> response = await client.GetChatCompletionsAsync(chatCompletionsOptions);
-
-    ChatCompletions completions = response.Value;
-    string completion = completions.Choices[0].Message.Content;
+    ChatCompletion response = await chatClient.CompleteChatAsync(
+        [
+            new SystemChatMessage(systemPrompt),
+            new UserChatMessage(userPrompt),
+        ],
+        chatCompletionsOptions);
     ```
 
     **Python**: code-generation.py
@@ -205,7 +201,7 @@ Jetzt können Sie das Azure OpenAI-SDK verwenden, um Ihr bereitgestelltes Modell
     )
     ```
 
-4. Speichern Sie die Änderungen in der Codedatei.
+1. Speichern Sie die Änderungen in der Codedatei.
 
 ## Ausführen der Anwendung
 
@@ -249,7 +245,7 @@ Nachdem Ihre App konfiguriert wurde, führen Sie sie aus, um Code für jeden Anw
     - **Python**: Korrekturen werden in Zeile 18 und 31 vorgenommen.
 
     Die App für Go Fish in **sample-code** kann ausgeführt werden, wenn man die Zeilen, die Fehler enthalten, durch die Antwort von Azure OpenAI ersetzt. Wenn Sie sie ohne die Korrekturen ausführen, wird sie nicht richtig funktionieren.
-    
+
     > **Hinweis:** Es ist wichtig zu beachten, dass der Code für diese Go Fish-App zwar um einige Syntaxfehler korrigiert wurde, es sich jedoch nicht um eine genaue Darstellung des Spiels handelt. Wenn Sie genau hinsehen, treten Probleme dadurch auf, dass beim Ziehen von Karten nicht geprüft wird, ob das Deck leer ist, dass Paare nicht aus der Hand des Spielers bzw. der Spielerin entfernt werden, wenn er*sie ein Paar erhält, und einige andere Fehler, die ein Verständnis von Kartenspielen erfordern, um sie zu erkennen. Dies ist ein großartiges Beispiel dafür, wie nützlich generative KI-Modelle sein können, um die Codegenerierung zu unterstützen. Sie sollten jedoch nicht als absolut zuverlässig angesehen werden und müssen von dem*der Entwickler*in überprüft werden.
 
     Wenn Sie die vollständige Antwort von Azure OpenAI sehen möchten, können Sie die **printFullResponse**-Variable auf `True` festlegen und die App erneut ausführen.
